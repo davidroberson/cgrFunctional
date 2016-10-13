@@ -1,0 +1,19 @@
+name: "CGPBox Pipeline"
+navbar:
+  title: "CGPBox Pipeline"
+  right:
+    - text: workflows
+      menu:
+      - text: "01. BAM Stats and CNV"
+        href: wf01_stats_cnv.html
+      - text: "02. Variant Callers"
+        href: wf02_variant_callers.html
+      - text: "03. Large Structural Variation"
+        href: wf03_structural_variation.html
+    - text: "CGC Task Launcher"
+      href: cgc_task_launcher.html 
+output:
+  html_document:
+    theme: cosmo
+    highlight: pygments
+output_dir: "."

@@ -1,0 +1,127 @@
+
+```{r include = FALSE}
+require(rmarkdown); require(knitr); require(sevenbridges); require(readr); require(jsonlite);
+
+options(max.print = "99"); opts_knit$set(width = 99)
+opts_chunk$set(cache=FALSE, tidy=FALSE)
+
+source("~/sbg_auth.R")
+
+```
+
+<hr>
+
+Wrapping of hotspot3d for use in any cwl compatible platform.
+
+## base command
+
+```{sh base command, eval=FALSE}
+
+hotspot3d... [fill this out]
+
+```
+
+## docker 
+
+docker file
+
+https://github.com/teamcgc/hotspot3d/Dockerfile
+
+The docker conatiner is
+
+``` teamcgc/hotspot3d:latest ```
+
+## App ports {.tabset .tabset-fade .tabset-tabs}
+
+### Inputs
+
+```{r inputs, eval=run.mode=="push"}
+inputs = list(
+  
+input(id = "tar_file", label = "tar_file", description = "tar_file", type = "File", position = 1)
+
+)
+
+```
+
+### Outputs
+
+```{r output, eval = run.mode=="push"}
+
+outputs = list(
+
+output(id = "std_out", label = "std_out", 
+description = "standard output", type = "File...",
+metadata = list(org = "cgp"),
+glob = Expression(engine = "#cwl-js-engine",
+script = "\"*.{out}\""))
+)
+
+
+```
+
+## Define Tool Object and Push to Platform {.tabset .tabset-fade .tabset-tabs}
+  
+### Tool object
+
+```{r 5 create tool object, eval=run.mode=="push"}
+
+tool <- Tool(
+id = "hotspot3d",
+label = "hotspot3d",
+hints = requirements(docker(pull = "teamcgc/hotspot3d:latet"), cpu(1), mem(1000)),
+baseCommand = "hotspot3d",
+stdout = "std.out",
+inputs = inputs,
+outputs = outputs
+)
+
+
+```
+
+### Make cwl file
+
+```{r make cwl, eval=destination=="platform"}
+
+write(tool$toJSON(pretty = TRUE), "hotspot3d_cwl.json")
+
+```
+
+### Push app to sbg platform
+
+```{r push app to sbg, eval=destination=="platform"}
+
+project$app_add("hotspot3d", tool)
+
+
+```
+
+
+### Notes
+
+These columns are required
+
+Hugo_Symbol
+
+Chromosome
+
+Start_Position
+
+End_Position
+
+Variant_Classification
+
+Reference_Allele
+
+Tumor_Seq_Allele1
+
+Tumor_Seq_Allele2
+
+Tumor_Sample_Barcode
+
+with 2 non-standard columns:
+
+a transcript ID column
+
+a protein peptide change column (HGVS p. single letter abbreviations, ie p.T790M)
+

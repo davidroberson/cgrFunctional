@@ -1,0 +1,125 @@
+## JSON to Hotspot3d MAF {.tabset}
+
+```{r include = FALSE}
+require(rmarkdown); require(knitr); require(sevenbridges); require(readr)
+
+options(max.print = "99"); opts_knit$set(width = 99)
+opts_chunk$set(cache=FALSE, tidy=FALSE)
+
+source("cgc_auth.R")
+
+```
+
+Utility to create a maf from json that is compatible with hotspot3d
+
+### base command
+
+```{sh base command, eval=FALSE}
+
+json2maf.R \
+--json=[vcf file] \
+--output_name=[file prefix of output maf file]
+
+```
+
+
+### notes
+
+Very important R package "jsonlite"
+
+http://jeroenooms.github.io/mongo-slides/#19
+
+
+### i/o {.tabset}
+
+#### inputs
+
+```{r inputs}
+
+inputs = list(
+  
+input(id = "json", label = "json", description = "a json created from an annotated vcf", type = "File", prefix = "--json=")
+  
+)
+
+```
+
+#### arguments
+
+```{r arguments}
+arguments = CCBList(
+CommandLineBinding(position = 99, valueFrom = list('"&& ls -lR"'))
+)
+```
+
+#### outputs
+
+```{r output}
+
+outputs = list(
+
+output(id = "std_out", label = "std_out", 
+description = "standard output", type = "File",
+metadata = list(org = "cgp"),
+glob = '"std.out"'),
+  
+output(id = "maf", label = "maf", 
+description = "maf file created", type = "File",
+inheritMetadataFrom = "#normal_bam", metadata = list(from_tool = "json"),
+glob = Expression(engine = "#cwl-js-engine",
+script = '"*.maf"'))
+  
+)
+
+
+```
+
+#### add on scripts
+
+```{r add on scripts}
+
+json_to_hotspot3d_maf_R = fileDef(name = "json_to_hotspot3d_maf.R", content = read_file("json_to_hotspot3d_maf.R"))
+
+```
+
+### portability {.tabset}
+
+####docker
+
+The docker conatiner is
+
+``` cgrlab/feather:latest ```
+
+####tool definition
+
+```{r 5 create tool object}
+
+tool <- Tool(
+id = "json_to_hotspot3d_maf", 
+label = "json_to_hotspot3d_maf",
+hints = requirements(docker(pull = "cgrlab/tidyverse:latest"), cpu(1), mem(1000)),
+
+baseCommand = "CPU=`grep -c ^processor /proc/cpuinfo` && ascat.pl -c $CPU -rs Human -ra NCBI37 -pr WGS -pl ILLUMINA -sg ascat_SnpGcCorrections.tsv -q 20 -g L -o ascat_output",
+
+stdout = "std.out",
+
+inputs = inputs,
+  
+arguments = arguments,
+  
+outputs = outputs)
+
+```
+
+####cwl file
+
+```{r eval=create_cwl=="yes"}
+write(tool$toJSON(pretty = TRUE), "../ascat.json")
+```
+
+####push app to cloud platform
+
+```{r eval=platform_push=="yes"}
+project$app_add("ASCAT", tool)
+```
+
