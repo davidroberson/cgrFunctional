@@ -22,8 +22,6 @@ stream_out(temp_unnest, output)})
 close(output)
 json_df = as_tibble(stream_in(file("temp_unnest.json")))
 
-
-
 json_df_2 = json_df %>% 
 unnest(info.UCSC_KnownGene_Exomic_Variant_Detail)
 
