@@ -1,0 +1,214 @@
+{
+  "successCodes": [],
+  "stdin": "",
+  "sbg:cmdPreview": "bash prep.sh && /opt/hotspot3d/bin/hotspot3d anno --output-dir=./  > std.out",
+  "inputs": [
+    {
+      "id": "#ProximityFile_annotationFiles",
+      "sbg:stageInput": null,
+      "type": [
+        "null",
+        "File"
+      ]
+    },
+    {
+      "id": "#proximity_file",
+      "type": [
+        "null",
+        "File"
+      ]
+    },
+    {
+      "id": "#hugo_uniprot_file",
+      "sbg:stageInput": "copy",
+      "type": [
+        "null",
+        "File"
+      ]
+    }
+  ],
+  "sbg:revisionsInfo": [
+    {
+      "sbg:modifiedOn": 1477656682,
+      "sbg:revision": 0,
+      "sbg:modifiedBy": "dave",
+      "sbg:revisionNotes": "Copy of dave/cgrfunctional/statis/6"
+    },
+    {
+      "sbg:modifiedOn": 1477656705,
+      "sbg:revision": 1,
+      "sbg:modifiedBy": "dave",
+      "sbg:revisionNotes": null
+    },
+    {
+      "sbg:modifiedOn": 1477656915,
+      "sbg:revision": 2,
+      "sbg:modifiedBy": "dave",
+      "sbg:revisionNotes": null
+    },
+    {
+      "sbg:modifiedOn": 1477668930,
+      "sbg:revision": 3,
+      "sbg:modifiedBy": "dave",
+      "sbg:revisionNotes": null
+    },
+    {
+      "sbg:modifiedOn": 1477669156,
+      "sbg:revision": 4,
+      "sbg:modifiedBy": "dave",
+      "sbg:revisionNotes": null
+    },
+    {
+      "sbg:modifiedOn": 1477670434,
+      "sbg:revision": 5,
+      "sbg:modifiedBy": "dave",
+      "sbg:revisionNotes": null
+    },
+    {
+      "sbg:modifiedOn": 1477670948,
+      "sbg:revision": 6,
+      "sbg:modifiedBy": "dave",
+      "sbg:revisionNotes": null
+    },
+    {
+      "sbg:modifiedOn": 1477671026,
+      "sbg:revision": 7,
+      "sbg:modifiedBy": "dave",
+      "sbg:revisionNotes": null
+    },
+    {
+      "sbg:modifiedOn": 1477673686,
+      "sbg:revision": 8,
+      "sbg:modifiedBy": "dave",
+      "sbg:revisionNotes": null
+    }
+  ],
+  "label": "anno",
+  "sbg:modifiedOn": 1477673686,
+  "description": "##help\n\nUsage: hotspot3d anno [options]\n\n        --output-dir                 Output directory of proximity files\n\n        --help                       this message\n## usage\n\n## example command",
+  "sbg:id": "dave/cgrfunctional/anno/8",
+  "arguments": [],
+  "sbg:validationErrors": [],
+  "sbg:revision": 8,
+  "sbg:modifiedBy": "dave",
+  "sbg:job": {
+    "inputs": {
+      "ProximityFile_annotationFiles": {
+        "size": 0,
+        "secondaryFiles": [],
+        "path": "/path/to/annotation_files.txt",
+        "class": "File"
+      },
+      "hugo_uniprot_file": {
+        "size": 0,
+        "secondaryFiles": [],
+        "path": "/path/to/hugo_uniprot_file.ext",
+        "class": "File"
+      },
+      "proximity_file": {
+        "size": 0,
+        "secondaryFiles": [],
+        "path": "/path/to/proximity_file.ext",
+        "class": "File"
+      }
+    },
+    "allocatedResources": {
+      "cpu": 1,
+      "mem": 1000
+    }
+  },
+  "requirements": [
+    {
+      "id": "#cwl-js-engine",
+      "requirements": [
+        {
+          "dockerPull": "rabix/js-engine",
+          "class": "DockerRequirement"
+        }
+      ],
+      "class": "ExpressionEngineRequirement"
+    },
+    {
+      "fileDef": [
+        {
+          "filename": "prep.sh",
+          "fileContent": {
+            "engine": "#cwl-js-engine",
+            "script": "'#!/bin/bash \\n\\\n\\n\\\nmkdir proximityFiles \\n\\\nmkdir proximityFiles/inProgress \\n\\\nmkdir proximityFiles/pdbCoordinateFiles \\n\\\nmkdir proximityFiles/annotationFiles \\n\\\nmkdir proximityFiles/pvalues \\n\\\ncp '+$job.inputs.proximity_file.path+' proximityFiles \\n\\\ncp '+$job.inputs.proximity_file.path+' proximityFiles/pvalues \\n\\\ncp '+$job.inputs.ProximityFile_annotationFiles.path+' proximityFiles/annotationFiles'\n",
+            "class": "Expression"
+          }
+        }
+      ],
+      "class": "CreateFileRequirement"
+    }
+  ],
+  "id": "https://cgc-api.sbgenomics.com/v2/apps/dave/cgrfunctional/anno/8/raw/",
+  "stdout": "std.out",
+  "sbg:createdOn": 1477656682,
+  "baseCommand": [
+    "bash",
+    "prep.sh",
+    "&&",
+    "/opt/hotspot3d/bin/hotspot3d",
+    "anno",
+    "--output-dir=./"
+  ],
+  "class": "CommandLineTool",
+  "outputs": [
+    {
+      "outputBinding": {
+        "glob": {
+          "engine": "#cwl-js-engine",
+          "script": "\"std.out\"",
+          "class": "Expression"
+        },
+        "sbg:inheritMetadataFrom": "#maf"
+      },
+      "id": "#std_out",
+      "type": [
+        "null",
+        "File"
+      ]
+    },
+    {
+      "outputBinding": {
+        "glob": {
+          "engine": "#cwl-js-engine",
+          "script": "\"proximityFiles/annotations/*.csv\"",
+          "class": "Expression"
+        },
+        "sbg:inheritMetadataFrom": "#proximity_file"
+      },
+      "id": "#annotations",
+      "type": [
+        "null",
+        "File"
+      ]
+    }
+  ],
+  "hints": [
+    {
+      "value": 1,
+      "class": "sbg:CPURequirement"
+    },
+    {
+      "value": 1000,
+      "class": "sbg:MemRequirement"
+    },
+    {
+      "dockerPull": "cgrlab/hotspot3d:latest",
+      "dockerImageId": "",
+      "class": "DockerRequirement"
+    }
+  ],
+  "sbg:image_url": null,
+  "sbg:latestRevision": 8,
+  "temporaryFailCodes": [],
+  "sbg:contributors": [
+    "dave"
+  ],
+  "sbg:toolkit": "hotspot3d",
+  "sbg:sbgMaintained": false,
+  "sbg:createdBy": "dave",
+  "sbg:project": "dave/cgrfunctional"
+}
