@@ -1,0 +1,228 @@
+{
+  "sbg:modifiedBy": "dave",
+  "hints": [
+    {
+      "value": 1,
+      "class": "sbg:CPURequirement"
+    },
+    {
+      "value": 1000,
+      "class": "sbg:MemRequirement"
+    },
+    {
+      "dockerImageId": "",
+      "class": "DockerRequirement",
+      "dockerPull": "cgrlab/hotspot3d:latest"
+    }
+  ],
+  "sbg:modifiedOn": 1477969427,
+  "sbg:toolkit": "hotspot3d",
+  "description": "##help\n\n     Usage: hotspot3d cosmic [options]\n\n     REQUIRED\n     --output-dir                 Output directory of proximity files\n\n     OPTIONAL\n\n     --help                       this message",
+  "sbg:contributors": [
+    "dave"
+  ],
+  "baseCommand": [
+    "bash",
+    "prep.sh",
+    "&&",
+    "/opt/hotspot3d/bin/hotspot3d",
+    "cosmic",
+    "--output-dir=./"
+  ],
+  "sbg:cmdPreview": "bash prep.sh && /opt/hotspot3d/bin/hotspot3d cosmic --output-dir=./  > std.out",
+  "sbg:latestRevision": 8,
+  "sbg:revisionsInfo": [
+    {
+      "sbg:revisionNotes": "Copy of dave/cgrfunctional/trans/4",
+      "sbg:revision": 0,
+      "sbg:modifiedBy": "dave",
+      "sbg:modifiedOn": 1477954557
+    },
+    {
+      "sbg:revisionNotes": null,
+      "sbg:revision": 1,
+      "sbg:modifiedBy": "dave",
+      "sbg:modifiedOn": 1477954819
+    },
+    {
+      "sbg:revisionNotes": null,
+      "sbg:revision": 2,
+      "sbg:modifiedBy": "dave",
+      "sbg:modifiedOn": 1477960755
+    },
+    {
+      "sbg:revisionNotes": null,
+      "sbg:revision": 3,
+      "sbg:modifiedBy": "dave",
+      "sbg:modifiedOn": 1477961117
+    },
+    {
+      "sbg:revisionNotes": "fixed command line",
+      "sbg:revision": 4,
+      "sbg:modifiedBy": "dave",
+      "sbg:modifiedOn": 1477963718
+    },
+    {
+      "sbg:revisionNotes": "corrected bzip -d",
+      "sbg:revision": 5,
+      "sbg:modifiedBy": "dave",
+      "sbg:modifiedOn": 1477964216
+    },
+    {
+      "sbg:revisionNotes": null,
+      "sbg:revision": 6,
+      "sbg:modifiedBy": "dave",
+      "sbg:modifiedOn": 1477965458
+    },
+    {
+      "sbg:revisionNotes": "added cp proximity file",
+      "sbg:revision": 7,
+      "sbg:modifiedBy": "dave",
+      "sbg:modifiedOn": 1477968595
+    },
+    {
+      "sbg:revisionNotes": null,
+      "sbg:revision": 8,
+      "sbg:modifiedBy": "dave",
+      "sbg:modifiedOn": 1477969427
+    }
+  ],
+  "sbg:sbgMaintained": false,
+  "sbg:image_url": null,
+  "successCodes": [],
+  "sbg:createdOn": 1477954557,
+  "inputs": [
+    {
+      "sbg:stageInput": null,
+      "type": [
+        "null",
+        "File"
+      ],
+      "id": "#ProximityFile_annotationFiles"
+    },
+    {
+      "type": [
+        "null",
+        "File"
+      ],
+      "id": "#proximity_file"
+    },
+    {
+      "sbg:stageInput": "copy",
+      "type": [
+        "null",
+        "File"
+      ],
+      "id": "#hugo_uniprot_file"
+    },
+    {
+      "type": [
+        "null",
+        "File"
+      ],
+      "label": "cosmic_database",
+      "id": "#cosmic_database"
+    }
+  ],
+  "stdin": "",
+  "sbg:job": {
+    "allocatedResources": {
+      "mem": 1000,
+      "cpu": 1
+    },
+    "inputs": {
+      "cosmic_database": {
+        "path": "/path/to/cosmic_database.ext",
+        "size": 0,
+        "secondaryFiles": [],
+        "class": "File"
+      },
+      "hugo_uniprot_file": {
+        "path": "/path/to/hugo_uniprot_file.ext",
+        "size": 0,
+        "secondaryFiles": [],
+        "class": "File"
+      },
+      "proximity_file": {
+        "path": "/path/to/proximity_file.ext",
+        "size": 0,
+        "secondaryFiles": [],
+        "class": "File"
+      },
+      "ProximityFile_annotationFiles": {
+        "path": "/path/to/annotation_files.txt",
+        "size": 0,
+        "secondaryFiles": [],
+        "class": "File"
+      }
+    }
+  },
+  "requirements": [
+    {
+      "requirements": [
+        {
+          "class": "DockerRequirement",
+          "dockerPull": "rabix/js-engine"
+        }
+      ],
+      "class": "ExpressionEngineRequirement",
+      "id": "#cwl-js-engine"
+    },
+    {
+      "class": "CreateFileRequirement",
+      "fileDef": [
+        {
+          "filename": "prep.sh",
+          "fileContent": {
+            "engine": "#cwl-js-engine",
+            "class": "Expression",
+            "script": "'#!/bin/bash \\n\\\n\\n\\\nmkdir proximityFiles \\n\\\nmkdir proximityFiles/inProgress \\n\\\nmkdir proximityFiles/pdbCoordinateFiles \\n\\\nmkdir proximityFiles/annotationFiles \\n\\\nmkdir proximityFiles/annotations \\n\\\nmkdir cosmic \\n\\\ncp '+$job.inputs.proximity_file.path+' proximityFiles/annotations \\n\\\ncp '+$job.inputs.cosmic_database.path+' cosmic \\n\\\nbzip2 -d cosmic/'+$job.inputs.cosmic_database.path.split(\"/\").reverse()[0]\n\n"
+          }
+        }
+      ]
+    }
+  ],
+  "arguments": [],
+  "sbg:project": "dave/cgrfunctional",
+  "temporaryFailCodes": [],
+  "sbg:revision": 8,
+  "sbg:id": "dave/cgrfunctional/cosmic/8",
+  "label": "cosmic",
+  "sbg:createdBy": "dave",
+  "id": "https://cgc-api.sbgenomics.com/v2/apps/dave/cgrfunctional/cosmic/8/raw/",
+  "sbg:validationErrors": [],
+  "stdout": "std.out",
+  "class": "CommandLineTool",
+  "outputs": [
+    {
+      "type": [
+        "null",
+        "File"
+      ],
+      "outputBinding": {
+        "sbg:inheritMetadataFrom": "#maf",
+        "glob": {
+          "engine": "#cwl-js-engine",
+          "class": "Expression",
+          "script": "\"std.out\""
+        }
+      },
+      "id": "#std_out"
+    },
+    {
+      "type": [
+        "null",
+        "File"
+      ],
+      "outputBinding": {
+        "sbg:inheritMetadataFrom": "#cosmic_database",
+        "glob": {
+          "engine": "#cwl-js-engine",
+          "class": "Expression",
+          "script": "\"proximityFiles/cosmicanno/*.ProximityFile.csv\""
+        }
+      },
+      "id": "#cosmic_annotations"
+    }
+  ]
+}
