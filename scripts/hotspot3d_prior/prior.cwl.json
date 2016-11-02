@@ -1,0 +1,177 @@
+{
+  "sbg:modifiedBy": "dave",
+  "hints": [
+    {
+      "value": 1,
+      "class": "sbg:CPURequirement"
+    },
+    {
+      "value": 1000,
+      "class": "sbg:MemRequirement"
+    },
+    {
+      "dockerImageId": "",
+      "class": "DockerRequirement",
+      "dockerPull": "cgrlab/hotspot3d:latest"
+    }
+  ],
+  "sbg:modifiedOn": 1478089612,
+  "sbg:toolkit": "hotspot3d",
+  "description": "##help\n\n     Usage: hotspot3d prior [options]\n\n     REQUIRED\n     --output-dir                 Output directory\n\n     OPTIONAL\n     --p-value-cutoff             p_value cutoff(<=), default is 0.05\n     --3d-distance-cutoff         3D distance cutoff (<= Angstroms), default is 20\n     --linear-cutoff              Linear distance cutoff (> peptides), default is 0\n\n     --help                       this message\n\n## Output example\n\n     root@910a8355235c:/temp02# /opt/hotspot3d/bin/hotspot3d prior --output-dir=./\n     Q15796\n     -------.//proximityFiles/cosmicanno/Q15796.ProximityFile.csv---\n     Creating .//prioritization/Q15796.ProximityFile.csv",
+  "sbg:contributors": [
+    "dave"
+  ],
+  "baseCommand": [
+    "bash",
+    "prep.sh",
+    "&&",
+    "/opt/hotspot3d/bin/hotspot3d",
+    "prior",
+    "--output-dir=./"
+  ],
+  "sbg:cmdPreview": "bash prep.sh && /opt/hotspot3d/bin/hotspot3d prior --output-dir=./  > std.out",
+  "sbg:latestRevision": 4,
+  "sbg:revisionsInfo": [
+    {
+      "sbg:revisionNotes": "Copy of dave/cgrfunctional/cosmic/8",
+      "sbg:revision": 0,
+      "sbg:modifiedBy": "dave",
+      "sbg:modifiedOn": 1478086621
+    },
+    {
+      "sbg:revisionNotes": null,
+      "sbg:revision": 1,
+      "sbg:modifiedBy": "dave",
+      "sbg:modifiedOn": 1478088519
+    },
+    {
+      "sbg:revisionNotes": null,
+      "sbg:revision": 2,
+      "sbg:modifiedBy": "dave",
+      "sbg:modifiedOn": 1478088540
+    },
+    {
+      "sbg:revisionNotes": null,
+      "sbg:revision": 3,
+      "sbg:modifiedBy": "dave",
+      "sbg:modifiedOn": 1478089391
+    },
+    {
+      "sbg:revisionNotes": null,
+      "sbg:revision": 4,
+      "sbg:modifiedBy": "dave",
+      "sbg:modifiedOn": 1478089612
+    }
+  ],
+  "sbg:sbgMaintained": false,
+  "sbg:image_url": null,
+  "successCodes": [],
+  "sbg:createdOn": 1478086621,
+  "inputs": [
+    {
+      "sbg:stageInput": "copy",
+      "type": [
+        "null",
+        "File"
+      ],
+      "id": "#hugo_uniprot_file"
+    },
+    {
+      "type": [
+        "null",
+        "File"
+      ],
+      "label": "cosmic_annotated_proximity_file",
+      "id": "#cosmic_annotated_proximity_file"
+    }
+  ],
+  "stdin": "",
+  "sbg:job": {
+    "allocatedResources": {
+      "mem": 1000,
+      "cpu": 1
+    },
+    "inputs": {
+      "hugo_uniprot_file": {
+        "path": "/path/to/hugo_uniprot_file.ext",
+        "size": 0,
+        "secondaryFiles": [],
+        "class": "File"
+      },
+      "cosmic_annotated_proximity_file": {
+        "path": "/path/to/cosmic_annotated_proximity_file.ext",
+        "size": 0,
+        "secondaryFiles": [],
+        "class": "File"
+      }
+    }
+  },
+  "requirements": [
+    {
+      "requirements": [
+        {
+          "class": "DockerRequirement",
+          "dockerPull": "rabix/js-engine"
+        }
+      ],
+      "class": "ExpressionEngineRequirement",
+      "id": "#cwl-js-engine"
+    },
+    {
+      "class": "CreateFileRequirement",
+      "fileDef": [
+        {
+          "filename": "prep.sh",
+          "fileContent": {
+            "engine": "#cwl-js-engine",
+            "class": "Expression",
+            "script": "'#!/bin/bash \\n\\\n\\n\\\nmkdir proximityFiles \\n\\\nmkdir proximityFiles/inProgress \\n\\\nmkdir proximityFiles/pdbCoordinateFiles \\n\\\nmkdir proximityFiles/cosmicanno \\n\\\ncp '+$job.inputs.cosmic_annotated_proximity_file.path+' proximityFiles/cosmicanno'\n\n"
+          }
+        }
+      ]
+    }
+  ],
+  "arguments": [],
+  "sbg:project": "dave/cgrfunctional",
+  "temporaryFailCodes": [],
+  "sbg:revision": 4,
+  "sbg:id": "dave/cgrfunctional/prior/4",
+  "label": "prior",
+  "sbg:createdBy": "dave",
+  "id": "https://cgc-api.sbgenomics.com/v2/apps/dave/cgrfunctional/prior/4/raw/",
+  "sbg:validationErrors": [],
+  "stdout": "std.out",
+  "class": "CommandLineTool",
+  "outputs": [
+    {
+      "type": [
+        "null",
+        "File"
+      ],
+      "outputBinding": {
+        "sbg:inheritMetadataFrom": "#maf",
+        "glob": {
+          "engine": "#cwl-js-engine",
+          "class": "Expression",
+          "script": "\"std.out\""
+        }
+      },
+      "id": "#std_out"
+    },
+    {
+      "type": [
+        "null",
+        "File"
+      ],
+      "outputBinding": {
+        "sbg:inheritMetadataFrom": "#cosmic_annotated_proximity_file",
+        "glob": {
+          "engine": "#cwl-js-engine",
+          "class": "Expression",
+          "script": "\"proximityFiles/prioritization/*.ProximityFile.csv\""
+        }
+      },
+      "id": "#prioritization_files"
+    }
+  ]
+}
