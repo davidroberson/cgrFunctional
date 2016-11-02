@@ -15,7 +15,7 @@
       "dockerPull": "cgrlab/hotspot3d:latest"
     }
   ],
-  "sbg:modifiedOn": 1478089612,
+  "sbg:modifiedOn": 1478104158,
   "sbg:toolkit": "hotspot3d",
   "description": "##help\n\n     Usage: hotspot3d prior [options]\n\n     REQUIRED\n     --output-dir                 Output directory\n\n     OPTIONAL\n     --p-value-cutoff             p_value cutoff(<=), default is 0.05\n     --3d-distance-cutoff         3D distance cutoff (<= Angstroms), default is 20\n     --linear-cutoff              Linear distance cutoff (> peptides), default is 0\n\n     --help                       this message\n\n## Output example\n\n     root@910a8355235c:/temp02# /opt/hotspot3d/bin/hotspot3d prior --output-dir=./\n     Q15796\n     -------.//proximityFiles/cosmicanno/Q15796.ProximityFile.csv---\n     Creating .//prioritization/Q15796.ProximityFile.csv",
   "sbg:contributors": [
@@ -30,7 +30,7 @@
     "--output-dir=./"
   ],
   "sbg:cmdPreview": "bash prep.sh && /opt/hotspot3d/bin/hotspot3d prior --output-dir=./  > std.out",
-  "sbg:latestRevision": 4,
+  "sbg:latestRevision": 10,
   "sbg:revisionsInfo": [
     {
       "sbg:revisionNotes": "Copy of dave/cgrfunctional/cosmic/8",
@@ -61,6 +61,42 @@
       "sbg:revision": 4,
       "sbg:modifiedBy": "dave",
       "sbg:modifiedOn": 1478089612
+    },
+    {
+      "sbg:revisionNotes": "fixing prioritization output glob",
+      "sbg:revision": 5,
+      "sbg:modifiedBy": "dave",
+      "sbg:modifiedOn": 1478091165
+    },
+    {
+      "sbg:revisionNotes": "exposed optional parameters",
+      "sbg:revision": 6,
+      "sbg:modifiedBy": "dave",
+      "sbg:modifiedOn": 1478101851
+    },
+    {
+      "sbg:revisionNotes": "updated param labels",
+      "sbg:revision": 7,
+      "sbg:modifiedBy": "dave",
+      "sbg:modifiedOn": 1478103709
+    },
+    {
+      "sbg:revisionNotes": null,
+      "sbg:revision": 8,
+      "sbg:modifiedBy": "dave",
+      "sbg:modifiedOn": 1478103837
+    },
+    {
+      "sbg:revisionNotes": null,
+      "sbg:revision": 9,
+      "sbg:modifiedBy": "dave",
+      "sbg:modifiedOn": 1478103929
+    },
+    {
+      "sbg:revisionNotes": "updated parameter names",
+      "sbg:revision": 10,
+      "sbg:modifiedBy": "dave",
+      "sbg:modifiedOn": 1478104158
     }
   ],
   "sbg:sbgMaintained": false,
@@ -83,6 +119,51 @@
       ],
       "label": "cosmic_annotated_proximity_file",
       "id": "#cosmic_annotated_proximity_file"
+    },
+    {
+      "type": [
+        "null",
+        "float"
+      ],
+      "label": "prioritization app p value cutoff",
+      "sbg:category": "prior",
+      "id": "#p_value_cutoff",
+      "inputBinding": {
+        "sbg:cmdInclude": true,
+        "separate": true,
+        "prefix": "--p-value-cutoff"
+      },
+      "description": "p_value cutoff(<=), default is 0.05"
+    },
+    {
+      "type": [
+        "null",
+        "int"
+      ],
+      "label": "prioritization app 3D distance cutoff",
+      "sbg:category": "prior",
+      "id": "#3d_distance_cutoff",
+      "inputBinding": {
+        "sbg:cmdInclude": true,
+        "separate": true,
+        "prefix": "--3d-distance-cutof"
+      },
+      "description": "--3d-distance-cutoff 3D distance cutoff (<= Angstroms), default is 20"
+    },
+    {
+      "type": [
+        "null",
+        "int"
+      ],
+      "label": "prioritization app linear distance cutoff",
+      "sbg:category": "prior",
+      "id": "#linear_distance_cutoff",
+      "inputBinding": {
+        "sbg:cmdInclude": true,
+        "separate": true,
+        "prefix": "--linear-cutoff"
+      },
+      "description": "--linear-cutoff Linear distance cutoff (> peptides), default is 0"
     }
   ],
   "stdin": "",
@@ -98,14 +179,18 @@
         "secondaryFiles": [],
         "class": "File"
       },
+      "p_value_cutoff": 0.02,
+      "linear_distance_cutoff": 6,
       "cosmic_annotated_proximity_file": {
         "path": "/path/to/cosmic_annotated_proximity_file.ext",
         "size": 0,
         "secondaryFiles": [],
         "class": "File"
-      }
+      },
+      "3d_distance_cutoff": 10
     }
   },
+  "sbg:revisionNotes": "updated parameter names",
   "requirements": [
     {
       "requirements": [
@@ -133,15 +218,11 @@
   ],
   "arguments": [],
   "sbg:project": "dave/cgrfunctional",
+  "id": "https://cgc-api.sbgenomics.com/v2/apps/dave/cgrfunctional/prior/10/raw/",
   "temporaryFailCodes": [],
-  "sbg:revision": 4,
-  "sbg:id": "dave/cgrfunctional/prior/4",
+  "sbg:revision": 10,
+  "sbg:id": "dave/cgrfunctional/prior/10",
   "label": "prior",
-  "sbg:createdBy": "dave",
-  "id": "https://cgc-api.sbgenomics.com/v2/apps/dave/cgrfunctional/prior/4/raw/",
-  "sbg:validationErrors": [],
-  "stdout": "std.out",
-  "class": "CommandLineTool",
   "outputs": [
     {
       "type": [
@@ -168,10 +249,14 @@
         "glob": {
           "engine": "#cwl-js-engine",
           "class": "Expression",
-          "script": "\"proximityFiles/prioritization/*.ProximityFile.csv\""
+          "script": "\"prioritization/*.ProximityFile.csv\""
         }
       },
       "id": "#prioritization_files"
     }
-  ]
+  ],
+  "sbg:createdBy": "dave",
+  "sbg:validationErrors": [],
+  "stdout": "std.out",
+  "class": "CommandLineTool"
 }
