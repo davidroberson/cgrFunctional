@@ -1,0 +1,2910 @@
+{
+  "class": "Workflow",
+  "steps": [
+    {
+      "id": "#hotspot3d_prep",
+      "run": {
+        "sbg:canvas_y": 26,
+        "hints": [
+          {
+            "class": "sbg:AWSInstanceType",
+            "value": "c4.large"
+          }
+        ],
+        "inputs": [
+          {
+            "id": "#uniprot_id",
+            "label": "uniprot_id",
+            "description": "uniprot_id",
+            "type": [
+              "null",
+              "string"
+            ],
+            "sbg:stageInput": null
+          },
+          {
+            "id": "#pdb_file",
+            "label": "pdb_file",
+            "sbg:x": 44.411766532383126,
+            "sbg:y": 97.17648168253673,
+            "type": [
+              "null",
+              "File"
+            ],
+            "required": false
+          },
+          {
+            "id": "#p_value_cutoff",
+            "label": "prioritization app p value cutoff",
+            "description": "p_value cutoff(<=), default is 0.05",
+            "type": [
+              "null",
+              "float"
+            ],
+            "sbg:category": "prior"
+          },
+          {
+            "id": "#maf",
+            "label": "maf",
+            "sbg:x": -11.588232768035597,
+            "sbg:y": 425.9412432096425,
+            "type": [
+              "null",
+              "File"
+            ],
+            "required": false
+          },
+          {
+            "id": "#linear_distance_cutoff",
+            "label": "prioritization app linear distance cutoff",
+            "description": "--linear-cutoff Linear distance cutoff (> peptides), default is 0",
+            "type": [
+              "null",
+              "int"
+            ],
+            "sbg:category": "Prior"
+          },
+          {
+            "id": "#linear_cutoff",
+            "type": [
+              "null",
+              "int"
+            ],
+            "sbg:stageInput": null
+          },
+          {
+            "id": "#ensembl_peptide_database",
+            "label": "ensembl_peptide_database",
+            "sbg:x": 21.176425234255422,
+            "sbg:y": 581.1764952583712,
+            "type": [
+              "null",
+              "File"
+            ],
+            "required": false
+          },
+          {
+            "id": "#cosmic_database",
+            "label": "cosmic_database",
+            "sbg:x": -68.23533430396579,
+            "sbg:y": 763.5293731689437,
+            "type": [
+              "null",
+              "File"
+            ],
+            "required": false
+          },
+          {
+            "id": "#3d_distance_cutoff_1",
+            "label": "prioritization app 3D distance cutoff",
+            "description": "--3d-distance-cutoff 3D distance cutoff (<= Angstroms), default is 20",
+            "type": [
+              "null",
+              "int"
+            ],
+            "sbg:category": "prior"
+          },
+          {
+            "id": "#3d_distance_cutoff",
+            "label": "3d_distance_cutoff",
+            "description": "3d_distance_cutoff",
+            "type": [
+              "null",
+              "int"
+            ],
+            "sbg:stageInput": null
+          }
+        ],
+        "sbg:createdBy": "dave",
+        "sbg:canvas_zoom": 0.6999999999999997,
+        "sbg:revisionsInfo": [
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 0,
+            "sbg:modifiedOn": 1477590226,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 1,
+            "sbg:modifiedOn": 1477590489,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 2,
+            "sbg:modifiedOn": 1477591590,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 3,
+            "sbg:modifiedOn": 1477592499,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 4,
+            "sbg:modifiedOn": 1477594309,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 5,
+            "sbg:modifiedOn": 1477594358,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 6,
+            "sbg:modifiedOn": 1477594770,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 7,
+            "sbg:modifiedOn": 1477595347,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 8,
+            "sbg:modifiedOn": 1477595641,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 9,
+            "sbg:modifiedOn": 1477601101,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 10,
+            "sbg:modifiedOn": 1477601664,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 11,
+            "sbg:modifiedOn": 1477617295,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 12,
+            "sbg:modifiedOn": 1477618136,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 13,
+            "sbg:modifiedOn": 1477618267,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 14,
+            "sbg:modifiedOn": 1477618834,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 15,
+            "sbg:modifiedOn": 1477620507,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 16,
+            "sbg:modifiedOn": 1477622460,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 17,
+            "sbg:modifiedOn": 1477651684,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 18,
+            "sbg:modifiedOn": 1477655209,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 19,
+            "sbg:modifiedOn": 1477655434,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 20,
+            "sbg:modifiedOn": 1477656398,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 21,
+            "sbg:modifiedOn": 1477656966,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 22,
+            "sbg:modifiedOn": 1477657508,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 23,
+            "sbg:modifiedOn": 1477668277,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 24,
+            "sbg:modifiedOn": 1477669010,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 25,
+            "sbg:modifiedOn": 1477669178,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 26,
+            "sbg:modifiedOn": 1477670486,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 27,
+            "sbg:modifiedOn": 1477671053,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 28,
+            "sbg:modifiedOn": 1477672904,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 29,
+            "sbg:modifiedOn": 1477672970,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 30,
+            "sbg:modifiedOn": 1477673785,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 31,
+            "sbg:modifiedOn": 1477772070,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": "c4.large",
+            "sbg:revision": 32,
+            "sbg:modifiedOn": 1477772911,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 33,
+            "sbg:modifiedOn": 1477772978,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": "trans: fixed sub command typo",
+            "sbg:revision": 34,
+            "sbg:modifiedOn": 1477773885,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 35,
+            "sbg:modifiedOn": 1477928538,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 36,
+            "sbg:modifiedOn": 1477961482,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": "cosmic: \"fixed command line\"",
+            "sbg:revision": 37,
+            "sbg:modifiedOn": 1477963755,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": "cosmic corrected \"corrected bzip -d\"",
+            "sbg:revision": 38,
+            "sbg:modifiedOn": 1477964241,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 39,
+            "sbg:modifiedOn": 1477965488,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 40,
+            "sbg:modifiedOn": 1477967279,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 41,
+            "sbg:modifiedOn": 1477968461,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 42,
+            "sbg:modifiedOn": 1477968489,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": "cosmic: \"added cp proximity file\"",
+            "sbg:revision": 43,
+            "sbg:modifiedOn": 1477968767,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 44,
+            "sbg:modifiedOn": 1477969472,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": "added prior app",
+            "sbg:revision": 45,
+            "sbg:modifiedOn": 1478090093,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": "fixing prior glob",
+            "sbg:revision": 46,
+            "sbg:modifiedOn": 1478091304,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": "updated tool name",
+            "sbg:revision": 47,
+            "sbg:modifiedOn": 1478099173,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": "prior \"exposed optional parameters\"",
+            "sbg:revision": 48,
+            "sbg:modifiedOn": 1478102366,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": "unlocked prior params",
+            "sbg:revision": 49,
+            "sbg:modifiedOn": 1478102385,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": "You are currently using prior (Revision 6) which has a new update available.\nDo you want to update this node?\n\nRevision note:\n\"updated param labels\"",
+            "sbg:revision": 50,
+            "sbg:modifiedOn": 1478103747,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 51,
+            "sbg:modifiedOn": 1478103875,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 52,
+            "sbg:modifiedOn": 1478103895,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 53,
+            "sbg:modifiedOn": 1478103953,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": "prior (Revision 9) which has a new update available.\nDo you want to update this node?\n\nRevision note:\n\"updated parameter names\"",
+            "sbg:revision": 54,
+            "sbg:modifiedOn": 1478104328,
+            "sbg:modifiedBy": "dave"
+          }
+        ],
+        "id": "dave/cgrfunctional/hotspot3d-prep/54",
+        "sbg:toolkit": "hotspot3d",
+        "label": "hotspot3d_prep",
+        "description": "## Preprocessing\n\n7 required, 1 optional, 8 total\n\n         drugport  --  0) Parse drugport database (OPTIONAL)\n         uppro     --  1) Update proximity files\n         calroi    --  2) Generate region of interest (ROI) information\n         statis    --  3) Calculate p_values for pairs of mutations\n         anno      --  4) Add region of interest (ROI) annotation\n         trans     --  5) Add transcript annotation\n         cosmic    --  6) Add COSMIC annotation to proximity file\n         prior     --  7) Prioritization\n\n##Analysis\n\n4 required, 2 optional, 6 total\n       \n\n         search    --  0) 3D mutation proximity searching\n         post      --  1) Post-processing of 3D proximity searching output\n         cluster   --  2) Determine mutation-mutation and mutation-drug clusters\n         sigclus   --  3) Determine significance of clusters (BETA/OPTIONAL)\n         summary   --  4) Summarize clusters (OPTIONAL)\n         visual    --  5) Visualization of 3D proximity (OPTIONAL)",
+        "requirements": [],
+        "sbg:sbgMaintained": false,
+        "outputs": [
+          {
+            "sbg:x": 1136.4706274910372,
+            "sbg:y": 136.47057900214244,
+            "id": "#pvalues_proximity_file",
+            "sbg:includeInPorts": true,
+            "source": [
+              "#statis.pvalues_proximity_file"
+            ],
+            "label": "pvalues_proximity_file",
+            "type": [
+              "null",
+              "File"
+            ],
+            "required": false
+          },
+          {
+            "sbg:x": 1931.4285391204103,
+            "sbg:y": 574.285724211711,
+            "id": "#prioritization_files",
+            "sbg:includeInPorts": true,
+            "source": [
+              "#prior.prioritization_files"
+            ],
+            "label": "prioritization_files",
+            "type": [
+              "null",
+              "File"
+            ],
+            "required": false
+          },
+          {
+            "sbg:x": 933.5297049519176,
+            "sbg:y": 25.058830455925413,
+            "id": "#pdbCoordinateFiles",
+            "sbg:includeInPorts": true,
+            "source": [
+              "#calpro.pdbCoordinateFiles"
+            ],
+            "label": "pdbCoordinateFiles",
+            "type": [
+              "null",
+              {
+                "items": "File",
+                "type": "array",
+                "name": "pdbCoordinateFiles"
+              }
+            ],
+            "required": false
+          },
+          {
+            "sbg:x": 1388.8236490343536,
+            "sbg:y": 375.21013704096356,
+            "id": "#hugo_uniprot_pdb_with_transcript_annotations",
+            "sbg:includeInPorts": true,
+            "source": [
+              "#trans.hugo_uniprot_pdb_with_transcript_annotations"
+            ],
+            "label": "hugo_uniprot_pdb_with_transcript_annotations",
+            "type": [
+              "null",
+              "File"
+            ],
+            "required": false
+          },
+          {
+            "sbg:x": 1535.3783269380808,
+            "sbg:y": 768.739609223745,
+            "id": "#cosmic_annotations",
+            "sbg:includeInPorts": true,
+            "source": [
+              "#cosmic.cosmic_annotations"
+            ],
+            "label": "cosmic_annotations",
+            "type": [
+              "null",
+              "File"
+            ],
+            "required": false
+          },
+          {
+            "sbg:x": 1273.3615975431585,
+            "sbg:y": 244.28574178656822,
+            "id": "#annotations",
+            "sbg:includeInPorts": true,
+            "source": [
+              "#anno.annotations"
+            ],
+            "label": "annotated_proximityFiles",
+            "type": [
+              "null",
+              "File"
+            ],
+            "required": false
+          },
+          {
+            "sbg:x": 813.7397135927004,
+            "sbg:y": 579.7732854610827,
+            "id": "#ProximityFile_annotations",
+            "sbg:includeInPorts": true,
+            "source": [
+              "#calroi.ProximityFile_annotations"
+            ],
+            "label": "ProximityFile_annotations",
+            "type": [
+              "null",
+              "File"
+            ],
+            "required": false
+          }
+        ],
+        "steps": [
+          {
+            "outputs": [
+              {
+                "id": "#uppro.std_out"
+              },
+              {
+                "id": "#uppro.hugo_database"
+              }
+            ],
+            "sbg:x": 213.00001493704795,
+            "inputs": [
+              {
+                "id": "#uppro.pdb_file",
+                "source": [
+                  "#pdb_file"
+                ]
+              },
+              {
+                "id": "#uppro.maf",
+                "source": [
+                  "#maf"
+                ]
+              }
+            ],
+            "run": {
+              "stdout": "std.out",
+              "outputs": [
+                {
+                  "id": "#std_out",
+                  "outputBinding": {
+                    "sbg:inheritMetadataFrom": "#maf",
+                    "glob": {
+                      "class": "Expression",
+                      "engine": "#cwl-js-engine",
+                      "script": "\"std.out\""
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "File"
+                  ]
+                },
+                {
+                  "id": "#hugo_database",
+                  "outputBinding": {
+                    "sbg:inheritMetadataFrom": "#maf",
+                    "glob": {
+                      "class": "Expression",
+                      "engine": "#cwl-js-engine",
+                      "script": "\"*pdb.csv\""
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "File"
+                  ]
+                }
+              ],
+              "baseCommand": [
+                "/opt/hotspot3d/bin/hotspot3d",
+                "uppro",
+                "--output-dir=./",
+                "--pdb-file-dir=./"
+              ],
+              "inputs": [
+                {
+                  "id": "#pdb_file",
+                  "required": false,
+                  "type": [
+                    "null",
+                    "File"
+                  ],
+                  "sbg:stageInput": "link"
+                },
+                {
+                  "id": "#maf",
+                  "type": [
+                    "null",
+                    "File"
+                  ],
+                  "inputBinding": {
+                    "separate": false,
+                    "position": 1,
+                    "sbg:cmdInclude": true,
+                    "prefix": "--gene-file="
+                  },
+                  "required": false
+                }
+              ],
+              "sbg:createdBy": "dave",
+              "sbg:revisionsInfo": [
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 0,
+                  "sbg:modifiedOn": 1477506632,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 1,
+                  "sbg:modifiedOn": 1477506936,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 2,
+                  "sbg:modifiedOn": 1477507269,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 3,
+                  "sbg:modifiedOn": 1477507448,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 4,
+                  "sbg:modifiedOn": 1477591558,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 5,
+                  "sbg:modifiedOn": 1477592483,
+                  "sbg:modifiedBy": "dave"
+                }
+              ],
+              "id": "dave/cgrfunctional/uppro/5",
+              "label": "uppro",
+              "description": "",
+              "requirements": [
+                {
+                  "id": "#cwl-js-engine",
+                  "class": "ExpressionEngineRequirement",
+                  "requirements": [
+                    {
+                      "class": "DockerRequirement",
+                      "dockerPull": "rabix/js-engine"
+                    }
+                  ]
+                }
+              ],
+              "x": 213.00001493704795,
+              "sbg:sbgMaintained": false,
+              "stdin": "",
+              "sbg:modifiedBy": "dave",
+              "sbg:validationErrors": [],
+              "sbg:latestRevision": 5,
+              "sbg:modifiedOn": 1477592483,
+              "sbg:cmdPreview": "/opt/hotspot3d/bin/hotspot3d uppro --output-dir=./ --pdb-file-dir=./ --hold > std.out",
+              "y": 289.6242936203849,
+              "class": "CommandLineTool",
+              "sbg:image_url": null,
+              "successCodes": [],
+              "sbg:createdOn": 1477506632,
+              "hints": [
+                {
+                  "class": "sbg:CPURequirement",
+                  "value": 1
+                },
+                {
+                  "class": "sbg:MemRequirement",
+                  "value": 1000
+                },
+                {
+                  "class": "DockerRequirement",
+                  "dockerImageId": "",
+                  "dockerPull": "cgrlab/hotspot3d:latest"
+                }
+              ],
+              "sbg:id": "dave/cgrfunctional/uppro/5",
+              "sbg:revision": 5,
+              "sbg:job": {
+                "allocatedResources": {
+                  "cpu": 1,
+                  "mem": 1000
+                },
+                "inputs": {
+                  "maf": {
+                    "path": "/path/to/sampleA.maf",
+                    "class": "File",
+                    "size": 0,
+                    "secondaryFiles": [],
+                    "metadata": {
+                      "sample_id": "Sample_A"
+                    }
+                  },
+                  "pdb_file": {
+                    "path": "/path/to/protein_name.pdb",
+                    "class": "File",
+                    "size": 0,
+                    "secondaryFiles": []
+                  }
+                }
+              },
+              "arguments": [
+                {
+                  "separate": false,
+                  "position": 2,
+                  "valueFrom": "--hold"
+                }
+              ],
+              "temporaryFailCodes": [],
+              "sbg:project": "dave/cgrfunctional",
+              "sbg:contributors": [
+                "dave"
+              ]
+            },
+            "id": "#uppro",
+            "sbg:y": 289.6242936203849
+          },
+          {
+            "outputs": [
+              {
+                "id": "#calroi.std_out"
+              },
+              {
+                "id": "#calroi.ProximityFile_annotations"
+              },
+              {
+                "id": "#calroi.Error_log"
+              }
+            ],
+            "sbg:x": 656.1766429475479,
+            "inputs": [
+              {
+                "id": "#calroi.hugo_uniprot_file",
+                "source": [
+                  "#uppro.hugo_database"
+                ]
+              }
+            ],
+            "run": {
+              "stdout": "std.out",
+              "hints": [
+                {
+                  "class": "sbg:CPURequirement",
+                  "value": 1
+                },
+                {
+                  "class": "sbg:MemRequirement",
+                  "value": 1000
+                },
+                {
+                  "class": "DockerRequirement",
+                  "dockerImageId": "",
+                  "dockerPull": "cgrlab/hotspot3d:latest"
+                }
+              ],
+              "baseCommand": [
+                "bash",
+                "prep.sh",
+                "&&",
+                "/opt/hotspot3d/bin/hotspot3d",
+                "calroi",
+                "--output-dir=./"
+              ],
+              "inputs": [
+                {
+                  "id": "#hugo_uniprot_file",
+                  "sbg:stageInput": "copy",
+                  "type": [
+                    "null",
+                    "File"
+                  ],
+                  "required": false
+                }
+              ],
+              "sbg:createdBy": "dave",
+              "sbg:revisionsInfo": [
+                {
+                  "sbg:revisionNotes": "Copy of dave/cgrfunctional/calpro/7",
+                  "sbg:revision": 0,
+                  "sbg:modifiedOn": 1477616520,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 1,
+                  "sbg:modifiedOn": 1477617226,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 2,
+                  "sbg:modifiedOn": 1477618728,
+                  "sbg:modifiedBy": "dave"
+                }
+              ],
+              "id": "dave/cgrfunctional/calroi/2",
+              "sbg:toolkit": "hotspot3d",
+              "label": "calroi",
+              "description": "##help\n\nUsage: hotspot3d calroi [options]\n\nREQUIRED  \n--output-dir                 Output directory of proximity files\n\n--help                       this message\n\n## usage\n\nexample command\n\nhotspot3d calroi --output-dir=./",
+              "requirements": [
+                {
+                  "id": "#cwl-js-engine",
+                  "class": "ExpressionEngineRequirement",
+                  "requirements": [
+                    {
+                      "class": "DockerRequirement",
+                      "dockerPull": "rabix/js-engine"
+                    }
+                  ]
+                },
+                {
+                  "fileDef": [
+                    {
+                      "fileContent": "#!/bin/bash\n\nmkdir proximityFiles\nmkdir proximityFiles/inProgress\nmkdir proximityFiles/pdbCoordinateFiles",
+                      "filename": "prep.sh"
+                    }
+                  ],
+                  "class": "CreateFileRequirement"
+                }
+              ],
+              "x": 656.1766429475479,
+              "sbg:sbgMaintained": false,
+              "stdin": "",
+              "sbg:modifiedBy": "dave",
+              "outputs": [
+                {
+                  "id": "#std_out",
+                  "outputBinding": {
+                    "sbg:inheritMetadataFrom": "#pdb_file",
+                    "glob": {
+                      "class": "Expression",
+                      "engine": "#cwl-js-engine",
+                      "script": "\"std.out\""
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "File"
+                  ]
+                },
+                {
+                  "id": "#ProximityFile_annotations",
+                  "label": "ProximityFile_annotations",
+                  "type": [
+                    "null",
+                    "File"
+                  ],
+                  "outputBinding": {
+                    "sbg:inheritMetadataFrom": "#hugo_uniprot_file",
+                    "glob": {
+                      "class": "Expression",
+                      "engine": "#cwl-js-engine",
+                      "script": "\"proximityFiles/annotationFiles/*.txt\""
+                    }
+                  }
+                },
+                {
+                  "id": "#Error_log",
+                  "label": "Error_log",
+                  "type": [
+                    "null",
+                    "File"
+                  ],
+                  "outputBinding": {
+                    "sbg:inheritMetadataFrom": "#hugo_uniprot_file",
+                    "glob": {
+                      "class": "Expression",
+                      "engine": "#cwl-js-engine",
+                      "script": "\"proximityFiles/annotationFiles/*.LOG\""
+                    }
+                  }
+                }
+              ],
+              "sbg:latestRevision": 2,
+              "sbg:modifiedOn": 1477618728,
+              "y": 449.0361255289592,
+              "sbg:cmdPreview": "bash prep.sh && /opt/hotspot3d/bin/hotspot3d calroi --output-dir=./  > std.out",
+              "sbg:id": "dave/cgrfunctional/calroi/2",
+              "sbg:image_url": null,
+              "successCodes": [],
+              "class": "CommandLineTool",
+              "sbg:createdOn": 1477616520,
+              "sbg:job": {
+                "allocatedResources": {
+                  "cpu": 1,
+                  "mem": 1000
+                },
+                "inputs": {
+                  "hugo_uniprot_file": {
+                    "path": "/path/to/hugo_uniprot_file.ext",
+                    "class": "File",
+                    "size": 0,
+                    "secondaryFiles": []
+                  }
+                }
+              },
+              "sbg:revision": 2,
+              "arguments": [],
+              "sbg:validationErrors": [],
+              "temporaryFailCodes": [],
+              "sbg:project": "dave/cgrfunctional",
+              "sbg:contributors": [
+                "dave"
+              ]
+            },
+            "id": "#calroi",
+            "sbg:y": 449.0361255289592
+          },
+          {
+            "outputs": [
+              {
+                "id": "#calpro.std_out"
+              },
+              {
+                "id": "#calpro.pdbCoordinateFiles"
+              },
+              {
+                "id": "#calpro.ProximityFile_csv"
+              }
+            ],
+            "sbg:x": 503.0000678643239,
+            "inputs": [
+              {
+                "id": "#calpro.uniprot_id",
+                "source": [
+                  "#uniprot_id"
+                ]
+              },
+              {
+                "id": "#calpro.pdb_file",
+                "source": [
+                  "#pdb_file"
+                ]
+              },
+              {
+                "id": "#calpro.linear_cutoff",
+                "source": [
+                  "#linear_cutoff"
+                ]
+              },
+              {
+                "id": "#calpro.hugo_uniprot_file",
+                "source": [
+                  "#uppro.hugo_database"
+                ]
+              },
+              {
+                "id": "#calpro.3d_distance_cutoff",
+                "source": [
+                  "#3d_distance_cutoff"
+                ]
+              }
+            ],
+            "run": {
+              "stdout": "std.out",
+              "outputs": [
+                {
+                  "id": "#std_out",
+                  "type": [
+                    "null",
+                    "File"
+                  ],
+                  "outputBinding": {
+                    "sbg:inheritMetadataFrom": "#pdb_file",
+                    "glob": {
+                      "class": "Expression",
+                      "engine": "#cwl-js-engine",
+                      "script": "\"std.out\""
+                    }
+                  }
+                },
+                {
+                  "id": "#pdbCoordinateFiles",
+                  "label": "pdbCoordinateFiles",
+                  "type": [
+                    "null",
+                    "File"
+                  ],
+                  "outputBinding": {
+                    "sbg:inheritMetadataFrom": "#pdb_file",
+                    "glob": {
+                      "class": "Expression",
+                      "engine": "#cwl-js-engine",
+                      "script": "\"proximityFiles/pdbCoordinateFiles/*.coord\""
+                    }
+                  }
+                },
+                {
+                  "id": "#ProximityFile_csv",
+                  "type": [
+                    "null",
+                    "File"
+                  ],
+                  "outputBinding": {
+                    "sbg:inheritMetadataFrom": "#pdb_file",
+                    "glob": {
+                      "class": "Expression",
+                      "engine": "#cwl-js-engine",
+                      "script": "\"proximityFiles/*ProximityFile.csv\""
+                    }
+                  }
+                }
+              ],
+              "baseCommand": [
+                "bash",
+                "prep.sh",
+                "&&",
+                "/opt/hotspot3d/bin/hotspot3d",
+                "calpro",
+                "--output-dir=./",
+                "--pdb-file-dir=./",
+                ""
+              ],
+              "inputs": [
+                {
+                  "inputBinding": {
+                    "separate": false,
+                    "position": 1,
+                    "sbg:cmdInclude": true,
+                    "prefix": "--uniprot-id="
+                  },
+                  "id": "#uniprot_id",
+                  "label": "uniprot_id",
+                  "description": "uniprot_id",
+                  "type": [
+                    "null",
+                    "string"
+                  ],
+                  "sbg:stageInput": null
+                },
+                {
+                  "id": "#pdb_file",
+                  "type": [
+                    "null",
+                    "File"
+                  ],
+                  "required": false
+                },
+                {
+                  "id": "#linear_cutoff",
+                  "type": [
+                    "null",
+                    "int"
+                  ],
+                  "inputBinding": {
+                    "separate": false,
+                    "position": 3,
+                    "sbg:cmdInclude": true,
+                    "prefix": "--linear-cutoff="
+                  },
+                  "sbg:stageInput": null
+                },
+                {
+                  "id": "#hugo_uniprot_file",
+                  "required": false,
+                  "type": [
+                    "null",
+                    "File"
+                  ],
+                  "sbg:stageInput": "copy"
+                },
+                {
+                  "inputBinding": {
+                    "separate": false,
+                    "position": 2,
+                    "sbg:cmdInclude": true,
+                    "prefix": "--3d-distance-cutoff="
+                  },
+                  "id": "#3d_distance_cutoff",
+                  "label": "3d_distance_cutoff",
+                  "description": "3d_distance_cutoff",
+                  "type": [
+                    "null",
+                    "int"
+                  ],
+                  "sbg:stageInput": null
+                }
+              ],
+              "sbg:createdBy": "dave",
+              "sbg:revisionsInfo": [
+                {
+                  "sbg:revisionNotes": "Copy of dave/cgrfunctional/uppro/3",
+                  "sbg:revision": 0,
+                  "sbg:modifiedOn": 1477593266,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 1,
+                  "sbg:modifiedOn": 1477593745,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 2,
+                  "sbg:modifiedOn": 1477594244,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 3,
+                  "sbg:modifiedOn": 1477594703,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 4,
+                  "sbg:modifiedOn": 1477595291,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 5,
+                  "sbg:modifiedOn": 1477595493,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 6,
+                  "sbg:modifiedOn": 1477601079,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 7,
+                  "sbg:modifiedOn": 1477601650,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 8,
+                  "sbg:modifiedOn": 1477616791,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 9,
+                  "sbg:modifiedOn": 1477656376,
+                  "sbg:modifiedBy": "dave"
+                }
+              ],
+              "id": "dave/cgrfunctional/calpro/9",
+              "label": "calpro",
+              "description": "example command\n\n`hotspot3d calpro --output-dir=./ --pdb-file-dir=pdb --uniprot-id=Q15796 --3d-distance-cutoff=20 --linear-cutoff=0 --measure=averageDistance`",
+              "requirements": [
+                {
+                  "id": "#cwl-js-engine",
+                  "class": "ExpressionEngineRequirement",
+                  "requirements": [
+                    {
+                      "class": "DockerRequirement",
+                      "dockerPull": "rabix/js-engine"
+                    }
+                  ]
+                },
+                {
+                  "fileDef": [
+                    {
+                      "fileContent": "#!/bin/bash\n\nmkdir proximityFiles\nmkdir proximityFiles/inProgress\nmkdir proximityFiles/pdbCoordinateFiles",
+                      "filename": "prep.sh"
+                    }
+                  ],
+                  "class": "CreateFileRequirement"
+                }
+              ],
+              "x": 503.0000678643239,
+              "sbg:sbgMaintained": false,
+              "stdin": "",
+              "sbg:modifiedBy": "dave",
+              "sbg:validationErrors": [],
+              "sbg:latestRevision": 9,
+              "sbg:modifiedOn": 1477656376,
+              "sbg:cmdPreview": "bash prep.sh && /opt/hotspot3d/bin/hotspot3d calpro --output-dir=./ --pdb-file-dir=./   > std.out",
+              "y": 130.74191755838055,
+              "class": "CommandLineTool",
+              "sbg:image_url": null,
+              "successCodes": [],
+              "sbg:createdOn": 1477593266,
+              "hints": [
+                {
+                  "class": "sbg:CPURequirement",
+                  "value": 1
+                },
+                {
+                  "class": "sbg:MemRequirement",
+                  "value": 1000
+                },
+                {
+                  "class": "DockerRequirement",
+                  "dockerImageId": "",
+                  "dockerPull": "cgrlab/hotspot3d:latest"
+                }
+              ],
+              "sbg:id": "dave/cgrfunctional/calpro/9",
+              "sbg:revision": 9,
+              "sbg:job": {
+                "allocatedResources": {
+                  "cpu": 1,
+                  "mem": 1000
+                },
+                "inputs": {
+                  "3d_distance_cutoff": 20,
+                  "uniprot_id": "Q15796",
+                  "pdb_file": {
+                    "path": "/path/to/protein_name.pdb",
+                    "class": "File",
+                    "size": 0,
+                    "secondaryFiles": []
+                  },
+                  "linear_cutoff": 0,
+                  "hugo_uniprot_file": {
+                    "path": "/path/to/hugo_uniprot_file.ext",
+                    "class": "File",
+                    "size": 0,
+                    "secondaryFiles": []
+                  }
+                }
+              },
+              "arguments": [],
+              "temporaryFailCodes": [],
+              "sbg:project": "dave/cgrfunctional",
+              "sbg:contributors": [
+                "dave"
+              ]
+            },
+            "id": "#calpro",
+            "sbg:y": 130.74191755838055
+          },
+          {
+            "outputs": [
+              {
+                "id": "#statis.std_out"
+              },
+              {
+                "id": "#statis.pvalues_proximity_file"
+              }
+            ],
+            "sbg:x": 778.823956136484,
+            "inputs": [
+              {
+                "id": "#statis.proximity_file",
+                "source": [
+                  "#calpro.ProximityFile_csv"
+                ]
+              },
+              {
+                "id": "#statis.maf",
+                "source": [
+                  "#maf"
+                ]
+              },
+              {
+                "id": "#statis.hugo_uniprot_file",
+                "source": [
+                  "#uppro.hugo_database"
+                ]
+              }
+            ],
+            "run": {
+              "stdout": "std.out",
+              "hints": [
+                {
+                  "class": "sbg:CPURequirement",
+                  "value": 1
+                },
+                {
+                  "class": "sbg:MemRequirement",
+                  "value": 1000
+                },
+                {
+                  "class": "DockerRequirement",
+                  "dockerImageId": "",
+                  "dockerPull": "cgrlab/hotspot3d:latest"
+                }
+              ],
+              "baseCommand": [
+                "bash",
+                "prep.sh",
+                "&&",
+                "/opt/hotspot3d/bin/hotspot3d",
+                "statis",
+                "--output-dir=./"
+              ],
+              "inputs": [
+                {
+                  "id": "#proximity_file",
+                  "type": [
+                    "null",
+                    "File"
+                  ],
+                  "required": false
+                },
+                {
+                  "id": "#maf",
+                  "required": false,
+                  "type": [
+                    "null",
+                    "File"
+                  ],
+                  "sbg:stageInput": "copy"
+                },
+                {
+                  "id": "#hugo_uniprot_file",
+                  "sbg:stageInput": "copy",
+                  "type": [
+                    "null",
+                    "File"
+                  ],
+                  "required": false
+                }
+              ],
+              "sbg:createdBy": "dave",
+              "sbg:revisionsInfo": [
+                {
+                  "sbg:revisionNotes": "Copy of dave/cgrfunctional/calroi/1",
+                  "sbg:revision": 0,
+                  "sbg:modifiedOn": 1477617953,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 1,
+                  "sbg:modifiedOn": 1477618392,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 2,
+                  "sbg:modifiedOn": 1477618433,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 3,
+                  "sbg:modifiedOn": 1477618658,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 4,
+                  "sbg:modifiedOn": 1477622421,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 5,
+                  "sbg:modifiedOn": 1477651589,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 6,
+                  "sbg:modifiedOn": 1477655412,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 7,
+                  "sbg:modifiedOn": 1477657487,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 8,
+                  "sbg:modifiedOn": 1477668253,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 9,
+                  "sbg:modifiedOn": 1477672952,
+                  "sbg:modifiedBy": "dave"
+                }
+              ],
+              "id": "dave/cgrfunctional/statis/9",
+              "sbg:toolkit": "hotspot3d",
+              "label": "statis",
+              "description": "/opt/hotspot3d/bin/hotspot3d statis --output-dir=./\nQ15796\nCreating .//proximityFiles/pvalues/Q15796.ProximityFile.csv\n\n##help\n\nUsage: hotspot3d statis [options]\n\nREQUIRED\n\n--output-dir                 Output directory of proximity files\n\n--help                       this message\n\n## usage\n\nexample command\n\n/opt/hotspot3d/bin/hotspot3d statis --output-dir=./\nQ15796\nCreating .//proximityFiles/pvalues/Q15796.ProximityFile.csv",
+              "requirements": [
+                {
+                  "id": "#cwl-js-engine",
+                  "class": "ExpressionEngineRequirement",
+                  "requirements": [
+                    {
+                      "class": "DockerRequirement",
+                      "dockerPull": "rabix/js-engine"
+                    }
+                  ]
+                },
+                {
+                  "fileDef": [
+                    {
+                      "fileContent": {
+                        "class": "Expression",
+                        "engine": "#cwl-js-engine",
+                        "script": "'#!/bin/bash \\n\\\n\\n\\\nmkdir proximityFiles \\n\\\nmkdir proximityFiles/inProgress \\n\\\nmkdir proximityFiles/pdbCoordinateFiles \\n\\\n\\n\\\ncp '+$job.inputs.proximity_file.path+' proximityFiles'"
+                      },
+                      "filename": "prep.sh"
+                    }
+                  ],
+                  "class": "CreateFileRequirement"
+                }
+              ],
+              "x": 778.823956136484,
+              "sbg:sbgMaintained": false,
+              "stdin": "",
+              "sbg:modifiedBy": "dave",
+              "outputs": [
+                {
+                  "id": "#std_out",
+                  "outputBinding": {
+                    "sbg:inheritMetadataFrom": "#maf",
+                    "glob": {
+                      "class": "Expression",
+                      "engine": "#cwl-js-engine",
+                      "script": "\"std.out\""
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "File"
+                  ]
+                },
+                {
+                  "id": "#pvalues_proximity_file",
+                  "label": "Error_log",
+                  "type": [
+                    "null",
+                    "File"
+                  ],
+                  "outputBinding": {
+                    "sbg:inheritMetadataFrom": "#maf",
+                    "glob": {
+                      "class": "Expression",
+                      "engine": "#cwl-js-engine",
+                      "script": "\"proximityFiles/pvalues/*ProximityFile.csv\""
+                    }
+                  }
+                }
+              ],
+              "sbg:latestRevision": 9,
+              "sbg:modifiedOn": 1477672952,
+              "y": 193.19139920840828,
+              "sbg:cmdPreview": "bash prep.sh && /opt/hotspot3d/bin/hotspot3d statis --output-dir=./  > std.out",
+              "sbg:id": "dave/cgrfunctional/statis/9",
+              "sbg:image_url": null,
+              "successCodes": [],
+              "class": "CommandLineTool",
+              "sbg:createdOn": 1477617953,
+              "sbg:job": {
+                "allocatedResources": {
+                  "cpu": 1,
+                  "mem": 1000
+                },
+                "inputs": {
+                  "proximity_file": {
+                    "path": "/path/to/proximity_file.ext",
+                    "class": "File",
+                    "size": 0,
+                    "secondaryFiles": []
+                  },
+                  "maf": {
+                    "path": "/path/to/maf.ext",
+                    "class": "File",
+                    "size": 0,
+                    "secondaryFiles": []
+                  },
+                  "hugo_uniprot_file": {
+                    "path": "/path/to/hugo_uniprot_file.ext",
+                    "class": "File",
+                    "size": 0,
+                    "secondaryFiles": []
+                  }
+                }
+              },
+              "sbg:revision": 9,
+              "arguments": [],
+              "sbg:validationErrors": [],
+              "temporaryFailCodes": [],
+              "sbg:project": "dave/cgrfunctional",
+              "sbg:contributors": [
+                "dave"
+              ]
+            },
+            "id": "#statis",
+            "sbg:y": 193.19139920840828
+          },
+          {
+            "outputs": [
+              {
+                "id": "#anno.std_out"
+              },
+              {
+                "id": "#anno.annotations"
+              }
+            ],
+            "sbg:x": 1008.8237957834336,
+            "inputs": [
+              {
+                "id": "#anno.proximity_file",
+                "source": [
+                  "#statis.pvalues_proximity_file"
+                ]
+              },
+              {
+                "id": "#anno.hugo_uniprot_file",
+                "source": [
+                  "#uppro.hugo_database"
+                ]
+              },
+              {
+                "id": "#anno.ProximityFile_annotationFiles",
+                "source": [
+                  "#calroi.ProximityFile_annotations"
+                ]
+              }
+            ],
+            "run": {
+              "stdout": "std.out",
+              "hints": [
+                {
+                  "class": "sbg:CPURequirement",
+                  "value": 1
+                },
+                {
+                  "class": "sbg:MemRequirement",
+                  "value": 1000
+                },
+                {
+                  "class": "DockerRequirement",
+                  "dockerImageId": "",
+                  "dockerPull": "cgrlab/hotspot3d:latest"
+                }
+              ],
+              "baseCommand": [
+                "bash",
+                "prep.sh",
+                "&&",
+                "/opt/hotspot3d/bin/hotspot3d",
+                "anno",
+                "--output-dir=./"
+              ],
+              "inputs": [
+                {
+                  "id": "#proximity_file",
+                  "type": [
+                    "null",
+                    "File"
+                  ],
+                  "required": false
+                },
+                {
+                  "id": "#hugo_uniprot_file",
+                  "required": false,
+                  "type": [
+                    "null",
+                    "File"
+                  ],
+                  "sbg:stageInput": "copy"
+                },
+                {
+                  "id": "#ProximityFile_annotationFiles",
+                  "required": false,
+                  "type": [
+                    "null",
+                    "File"
+                  ],
+                  "sbg:stageInput": null
+                }
+              ],
+              "sbg:createdBy": "dave",
+              "sbg:revisionsInfo": [
+                {
+                  "sbg:revisionNotes": "Copy of dave/cgrfunctional/statis/6",
+                  "sbg:revision": 0,
+                  "sbg:modifiedOn": 1477656682,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 1,
+                  "sbg:modifiedOn": 1477656705,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 2,
+                  "sbg:modifiedOn": 1477656915,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 3,
+                  "sbg:modifiedOn": 1477668930,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 4,
+                  "sbg:modifiedOn": 1477669156,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 5,
+                  "sbg:modifiedOn": 1477670434,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 6,
+                  "sbg:modifiedOn": 1477670948,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 7,
+                  "sbg:modifiedOn": 1477671026,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 8,
+                  "sbg:modifiedOn": 1477673686,
+                  "sbg:modifiedBy": "dave"
+                }
+              ],
+              "id": "dave/cgrfunctional/anno/8",
+              "sbg:toolkit": "hotspot3d",
+              "label": "anno",
+              "description": "##help\n\nUsage: hotspot3d anno [options]\n\n        --output-dir                 Output directory of proximity files\n\n        --help                       this message\n## usage\n\n## example command",
+              "requirements": [
+                {
+                  "id": "#cwl-js-engine",
+                  "class": "ExpressionEngineRequirement",
+                  "requirements": [
+                    {
+                      "class": "DockerRequirement",
+                      "dockerPull": "rabix/js-engine"
+                    }
+                  ]
+                },
+                {
+                  "fileDef": [
+                    {
+                      "fileContent": {
+                        "class": "Expression",
+                        "engine": "#cwl-js-engine",
+                        "script": "'#!/bin/bash \\n\\\n\\n\\\nmkdir proximityFiles \\n\\\nmkdir proximityFiles/inProgress \\n\\\nmkdir proximityFiles/pdbCoordinateFiles \\n\\\nmkdir proximityFiles/annotationFiles \\n\\\nmkdir proximityFiles/pvalues \\n\\\ncp '+$job.inputs.proximity_file.path+' proximityFiles \\n\\\ncp '+$job.inputs.proximity_file.path+' proximityFiles/pvalues \\n\\\ncp '+$job.inputs.ProximityFile_annotationFiles.path+' proximityFiles/annotationFiles'\n"
+                      },
+                      "filename": "prep.sh"
+                    }
+                  ],
+                  "class": "CreateFileRequirement"
+                }
+              ],
+              "x": 1008.8237957834336,
+              "sbg:sbgMaintained": false,
+              "stdin": "",
+              "sbg:modifiedBy": "dave",
+              "outputs": [
+                {
+                  "id": "#std_out",
+                  "type": [
+                    "null",
+                    "File"
+                  ],
+                  "outputBinding": {
+                    "sbg:inheritMetadataFrom": "#maf",
+                    "glob": {
+                      "class": "Expression",
+                      "engine": "#cwl-js-engine",
+                      "script": "\"std.out\""
+                    }
+                  }
+                },
+                {
+                  "id": "#annotations",
+                  "type": [
+                    "null",
+                    "File"
+                  ],
+                  "outputBinding": {
+                    "sbg:inheritMetadataFrom": "#proximity_file",
+                    "glob": {
+                      "class": "Expression",
+                      "engine": "#cwl-js-engine",
+                      "script": "\"proximityFiles/annotations/*.csv\""
+                    }
+                  }
+                }
+              ],
+              "sbg:latestRevision": 8,
+              "sbg:modifiedOn": 1477673686,
+              "y": 285.8803470685755,
+              "sbg:cmdPreview": "bash prep.sh && /opt/hotspot3d/bin/hotspot3d anno --output-dir=./  > std.out",
+              "sbg:id": "dave/cgrfunctional/anno/8",
+              "sbg:image_url": null,
+              "successCodes": [],
+              "class": "CommandLineTool",
+              "sbg:createdOn": 1477656682,
+              "sbg:job": {
+                "allocatedResources": {
+                  "cpu": 1,
+                  "mem": 1000
+                },
+                "inputs": {
+                  "proximity_file": {
+                    "path": "/path/to/proximity_file.ext",
+                    "class": "File",
+                    "size": 0,
+                    "secondaryFiles": []
+                  },
+                  "hugo_uniprot_file": {
+                    "path": "/path/to/hugo_uniprot_file.ext",
+                    "class": "File",
+                    "size": 0,
+                    "secondaryFiles": []
+                  },
+                  "ProximityFile_annotationFiles": {
+                    "path": "/path/to/annotation_files.txt",
+                    "class": "File",
+                    "size": 0,
+                    "secondaryFiles": []
+                  }
+                }
+              },
+              "sbg:revision": 8,
+              "arguments": [],
+              "sbg:validationErrors": [],
+              "temporaryFailCodes": [],
+              "sbg:project": "dave/cgrfunctional",
+              "sbg:contributors": [
+                "dave"
+              ]
+            },
+            "id": "#anno",
+            "sbg:y": 285.8803470685755
+          },
+          {
+            "outputs": [
+              {
+                "id": "#trans.std_out"
+              },
+              {
+                "id": "#trans.hugo_uniprot_pdb_with_transcript_annotations"
+              }
+            ],
+            "sbg:x": 1020.9247589741221,
+            "inputs": [
+              {
+                "id": "#trans.proximity_file"
+              },
+              {
+                "id": "#trans.hugo_uniprot_file",
+                "source": [
+                  "#uppro.hugo_database"
+                ]
+              },
+              {
+                "id": "#trans.ensembl_peptide_database",
+                "source": [
+                  "#ensembl_peptide_database"
+                ]
+              },
+              {
+                "id": "#trans.ProximityFile_annotationFiles"
+              }
+            ],
+            "run": {
+              "stdout": "std.out",
+              "hints": [
+                {
+                  "class": "sbg:CPURequirement",
+                  "value": 1
+                },
+                {
+                  "class": "sbg:MemRequirement",
+                  "value": 1000
+                },
+                {
+                  "class": "DockerRequirement",
+                  "dockerImageId": "",
+                  "dockerPull": "cgrlab/hotspot3d:latest"
+                }
+              ],
+              "baseCommand": [
+                "bash",
+                "prep.sh",
+                "&&",
+                "/opt/hotspot3d/bin/hotspot3d",
+                "trans",
+                "--output-dir=./",
+                "--blat=/opt/blat"
+              ],
+              "inputs": [
+                {
+                  "id": "#proximity_file",
+                  "type": [
+                    "null",
+                    "File"
+                  ],
+                  "required": false
+                },
+                {
+                  "id": "#hugo_uniprot_file",
+                  "required": false,
+                  "type": [
+                    "null",
+                    "File"
+                  ],
+                  "sbg:stageInput": "copy"
+                },
+                {
+                  "id": "#ensembl_peptide_database",
+                  "type": [
+                    "null",
+                    "File"
+                  ],
+                  "required": false
+                },
+                {
+                  "id": "#ProximityFile_annotationFiles",
+                  "required": false,
+                  "type": [
+                    "null",
+                    "File"
+                  ],
+                  "sbg:stageInput": null
+                }
+              ],
+              "sbg:createdBy": "dave",
+              "sbg:revisionsInfo": [
+                {
+                  "sbg:revisionNotes": "Copy of dave/cgrfunctional/anno/8",
+                  "sbg:revision": 0,
+                  "sbg:modifiedOn": 1477764545,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 1,
+                  "sbg:modifiedOn": 1477764701,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 2,
+                  "sbg:modifiedOn": 1477771966,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 3,
+                  "sbg:modifiedOn": 1477772954,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": "trans: fixed sub command typo",
+                  "sbg:revision": 4,
+                  "sbg:modifiedOn": 1477773866,
+                  "sbg:modifiedBy": "dave"
+                }
+              ],
+              "id": "dave/cgrfunctional/trans/4",
+              "sbg:toolkit": "hotspot3d",
+              "label": "trans",
+              "description": "##help\n\n     Usage: hotspot3d trans [options]\n\n     REQUIRED\n     --output-dir                 Output directory of proximity files\n\n     OPTIONAL\n     --blat                       Installation of blat to use (defaults to your system default)\n\n     --help                       this message",
+              "sbg:revisionNotes": "trans: fixed sub command typo",
+              "requirements": [
+                {
+                  "id": "#cwl-js-engine",
+                  "class": "ExpressionEngineRequirement",
+                  "requirements": [
+                    {
+                      "class": "DockerRequirement",
+                      "dockerPull": "rabix/js-engine"
+                    }
+                  ]
+                },
+                {
+                  "fileDef": [
+                    {
+                      "fileContent": {
+                        "class": "Expression",
+                        "engine": "#cwl-js-engine",
+                        "script": "'#!/bin/bash \\n\\\n\\n\\\nmkdir proximityFiles \\n\\\nmkdir proximityFiles/inProgress \\n\\\nmkdir proximityFiles/pdbCoordinateFiles \\n\\\nmkdir proximityFiles/annotationFiles \\n\\\nmkdir humanPeptides \\n\\\ncp '+$job.inputs.ensembl_peptide_database.path+' humanPeptides'"
+                      },
+                      "filename": "prep.sh"
+                    }
+                  ],
+                  "class": "CreateFileRequirement"
+                }
+              ],
+              "x": 1020.9247589741221,
+              "sbg:sbgMaintained": false,
+              "stdin": "",
+              "sbg:modifiedBy": "dave",
+              "outputs": [
+                {
+                  "id": "#std_out",
+                  "outputBinding": {
+                    "sbg:inheritMetadataFrom": "#maf",
+                    "glob": {
+                      "class": "Expression",
+                      "engine": "#cwl-js-engine",
+                      "script": "\"std.out\""
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "File"
+                  ]
+                },
+                {
+                  "id": "#hugo_uniprot_pdb_with_transcript_annotations",
+                  "outputBinding": {
+                    "sbg:inheritMetadataFrom": "#proximity_file",
+                    "glob": {
+                      "class": "Expression",
+                      "engine": "#cwl-js-engine",
+                      "script": "\"hugo.uniprot.pdb.transcript.csv\""
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "File"
+                  ]
+                }
+              ],
+              "sbg:latestRevision": 4,
+              "sbg:modifiedOn": 1477773866,
+              "y": 491.17455689003714,
+              "sbg:cmdPreview": "bash prep.sh && /opt/hotspot3d/bin/hotspot3d trans --output-dir=./ --blat=/opt/blat  > std.out",
+              "sbg:id": "dave/cgrfunctional/trans/4",
+              "sbg:image_url": null,
+              "successCodes": [],
+              "class": "CommandLineTool",
+              "sbg:createdOn": 1477764545,
+              "sbg:job": {
+                "allocatedResources": {
+                  "cpu": 1,
+                  "mem": 1000
+                },
+                "inputs": {
+                  "proximity_file": {
+                    "path": "/path/to/proximity_file.ext",
+                    "class": "File",
+                    "size": 0,
+                    "secondaryFiles": []
+                  },
+                  "ProximityFile_annotationFiles": {
+                    "path": "/path/to/annotation_files.txt",
+                    "class": "File",
+                    "size": 0,
+                    "secondaryFiles": []
+                  },
+                  "hugo_uniprot_file": {
+                    "path": "/path/to/hugo_uniprot_file.ext",
+                    "class": "File",
+                    "size": 0,
+                    "secondaryFiles": []
+                  },
+                  "ensembl_peptide_database": {
+                    "path": "/path/to/ensembl_peptide_database.ext",
+                    "class": "File",
+                    "size": 0,
+                    "secondaryFiles": []
+                  }
+                }
+              },
+              "sbg:revision": 4,
+              "arguments": [],
+              "sbg:validationErrors": [],
+              "temporaryFailCodes": [],
+              "sbg:project": "dave/cgrfunctional",
+              "sbg:contributors": [
+                "dave"
+              ]
+            },
+            "id": "#trans",
+            "sbg:y": 491.17455689003714
+          },
+          {
+            "outputs": [
+              {
+                "id": "#cosmic.std_out"
+              },
+              {
+                "id": "#cosmic.cosmic_annotations"
+              }
+            ],
+            "sbg:x": 1323.0538340916562,
+            "inputs": [
+              {
+                "id": "#cosmic.proximity_file",
+                "source": [
+                  "#anno.annotations"
+                ]
+              },
+              {
+                "id": "#cosmic.hugo_uniprot_file",
+                "source": [
+                  "#trans.hugo_uniprot_pdb_with_transcript_annotations"
+                ]
+              },
+              {
+                "id": "#cosmic.cosmic_database",
+                "source": [
+                  "#cosmic_database"
+                ]
+              },
+              {
+                "id": "#cosmic.ProximityFile_annotationFiles"
+              }
+            ],
+            "run": {
+              "stdout": "std.out",
+              "hints": [
+                {
+                  "class": "sbg:CPURequirement",
+                  "value": 1
+                },
+                {
+                  "class": "sbg:MemRequirement",
+                  "value": 1000
+                },
+                {
+                  "class": "DockerRequirement",
+                  "dockerImageId": "",
+                  "dockerPull": "cgrlab/hotspot3d:latest"
+                }
+              ],
+              "baseCommand": [
+                "bash",
+                "prep.sh",
+                "&&",
+                "/opt/hotspot3d/bin/hotspot3d",
+                "cosmic",
+                "--output-dir=./"
+              ],
+              "inputs": [
+                {
+                  "id": "#proximity_file",
+                  "type": [
+                    "null",
+                    "File"
+                  ],
+                  "required": false
+                },
+                {
+                  "id": "#hugo_uniprot_file",
+                  "required": false,
+                  "type": [
+                    "null",
+                    "File"
+                  ],
+                  "sbg:stageInput": "copy"
+                },
+                {
+                  "id": "#cosmic_database",
+                  "label": "cosmic_database",
+                  "type": [
+                    "null",
+                    "File"
+                  ],
+                  "required": false
+                },
+                {
+                  "id": "#ProximityFile_annotationFiles",
+                  "required": false,
+                  "type": [
+                    "null",
+                    "File"
+                  ],
+                  "sbg:stageInput": null
+                }
+              ],
+              "sbg:createdBy": "dave",
+              "sbg:revisionsInfo": [
+                {
+                  "sbg:revisionNotes": "Copy of dave/cgrfunctional/trans/4",
+                  "sbg:revision": 0,
+                  "sbg:modifiedOn": 1477954557,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 1,
+                  "sbg:modifiedOn": 1477954819,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 2,
+                  "sbg:modifiedOn": 1477960755,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 3,
+                  "sbg:modifiedOn": 1477961117,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": "fixed command line",
+                  "sbg:revision": 4,
+                  "sbg:modifiedOn": 1477963718,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": "corrected bzip -d",
+                  "sbg:revision": 5,
+                  "sbg:modifiedOn": 1477964216,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 6,
+                  "sbg:modifiedOn": 1477965458,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": "added cp proximity file",
+                  "sbg:revision": 7,
+                  "sbg:modifiedOn": 1477968595,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 8,
+                  "sbg:modifiedOn": 1477969427,
+                  "sbg:modifiedBy": "dave"
+                }
+              ],
+              "id": "dave/cgrfunctional/cosmic/8",
+              "sbg:toolkit": "hotspot3d",
+              "label": "cosmic",
+              "description": "##help\n\n     Usage: hotspot3d cosmic [options]\n\n     REQUIRED\n     --output-dir                 Output directory of proximity files\n\n     OPTIONAL\n\n     --help                       this message",
+              "requirements": [
+                {
+                  "id": "#cwl-js-engine",
+                  "class": "ExpressionEngineRequirement",
+                  "requirements": [
+                    {
+                      "class": "DockerRequirement",
+                      "dockerPull": "rabix/js-engine"
+                    }
+                  ]
+                },
+                {
+                  "fileDef": [
+                    {
+                      "fileContent": {
+                        "class": "Expression",
+                        "engine": "#cwl-js-engine",
+                        "script": "'#!/bin/bash \\n\\\n\\n\\\nmkdir proximityFiles \\n\\\nmkdir proximityFiles/inProgress \\n\\\nmkdir proximityFiles/pdbCoordinateFiles \\n\\\nmkdir proximityFiles/annotationFiles \\n\\\nmkdir proximityFiles/annotations \\n\\\nmkdir cosmic \\n\\\ncp '+$job.inputs.proximity_file.path+' proximityFiles/annotations \\n\\\ncp '+$job.inputs.cosmic_database.path+' cosmic \\n\\\nbzip2 -d cosmic/'+$job.inputs.cosmic_database.path.split(\"/\").reverse()[0]\n\n"
+                      },
+                      "filename": "prep.sh"
+                    }
+                  ],
+                  "class": "CreateFileRequirement"
+                }
+              ],
+              "x": 1323.0538340916562,
+              "sbg:sbgMaintained": false,
+              "stdin": "",
+              "sbg:modifiedBy": "dave",
+              "outputs": [
+                {
+                  "id": "#std_out",
+                  "type": [
+                    "null",
+                    "File"
+                  ],
+                  "outputBinding": {
+                    "sbg:inheritMetadataFrom": "#maf",
+                    "glob": {
+                      "class": "Expression",
+                      "engine": "#cwl-js-engine",
+                      "script": "\"std.out\""
+                    }
+                  }
+                },
+                {
+                  "id": "#cosmic_annotations",
+                  "type": [
+                    "null",
+                    "File"
+                  ],
+                  "outputBinding": {
+                    "sbg:inheritMetadataFrom": "#cosmic_database",
+                    "glob": {
+                      "class": "Expression",
+                      "engine": "#cwl-js-engine",
+                      "script": "\"proximityFiles/cosmicanno/*.ProximityFile.csv\""
+                    }
+                  }
+                }
+              ],
+              "sbg:latestRevision": 8,
+              "sbg:modifiedOn": 1477969427,
+              "y": 631.9371684089963,
+              "sbg:cmdPreview": "bash prep.sh && /opt/hotspot3d/bin/hotspot3d cosmic --output-dir=./  > std.out",
+              "sbg:id": "dave/cgrfunctional/cosmic/8",
+              "sbg:image_url": null,
+              "successCodes": [],
+              "class": "CommandLineTool",
+              "sbg:createdOn": 1477954557,
+              "sbg:job": {
+                "allocatedResources": {
+                  "cpu": 1,
+                  "mem": 1000
+                },
+                "inputs": {
+                  "proximity_file": {
+                    "path": "/path/to/proximity_file.ext",
+                    "class": "File",
+                    "size": 0,
+                    "secondaryFiles": []
+                  },
+                  "cosmic_database": {
+                    "path": "/path/to/cosmic_database.ext",
+                    "class": "File",
+                    "size": 0,
+                    "secondaryFiles": []
+                  },
+                  "hugo_uniprot_file": {
+                    "path": "/path/to/hugo_uniprot_file.ext",
+                    "class": "File",
+                    "size": 0,
+                    "secondaryFiles": []
+                  },
+                  "ProximityFile_annotationFiles": {
+                    "path": "/path/to/annotation_files.txt",
+                    "class": "File",
+                    "size": 0,
+                    "secondaryFiles": []
+                  }
+                }
+              },
+              "sbg:revision": 8,
+              "arguments": [],
+              "sbg:validationErrors": [],
+              "temporaryFailCodes": [],
+              "sbg:project": "dave/cgrfunctional",
+              "sbg:contributors": [
+                "dave"
+              ]
+            },
+            "id": "#cosmic",
+            "sbg:y": 631.9371684089963
+          },
+          {
+            "outputs": [
+              {
+                "id": "#prior.std_out"
+              },
+              {
+                "id": "#prior.prioritization_files"
+              }
+            ],
+            "sbg:x": 1625.714626078719,
+            "inputs": [
+              {
+                "id": "#prior.hugo_uniprot_file",
+                "source": [
+                  "#trans.hugo_uniprot_pdb_with_transcript_annotations"
+                ]
+              },
+              {
+                "id": "#prior.cosmic_annotated_proximity_file",
+                "source": [
+                  "#cosmic.cosmic_annotations"
+                ]
+              },
+              {
+                "id": "#prior.p_value_cutoff",
+                "source": [
+                  "#p_value_cutoff"
+                ]
+              },
+              {
+                "id": "#prior.3d_distance_cutoff",
+                "source": [
+                  "#3d_distance_cutoff_1"
+                ]
+              },
+              {
+                "id": "#prior.linear_distance_cutoff",
+                "source": [
+                  "#linear_distance_cutoff"
+                ]
+              }
+            ],
+            "run": {
+              "stdout": "std.out",
+              "hints": [
+                {
+                  "class": "sbg:CPURequirement",
+                  "value": 1
+                },
+                {
+                  "class": "sbg:MemRequirement",
+                  "value": 1000
+                },
+                {
+                  "class": "DockerRequirement",
+                  "dockerImageId": "",
+                  "dockerPull": "cgrlab/hotspot3d:latest"
+                }
+              ],
+              "baseCommand": [
+                "bash",
+                "prep.sh",
+                "&&",
+                "/opt/hotspot3d/bin/hotspot3d",
+                "prior",
+                "--output-dir=./"
+              ],
+              "inputs": [
+                {
+                  "id": "#hugo_uniprot_file",
+                  "type": [
+                    "null",
+                    "File"
+                  ],
+                  "sbg:stageInput": "copy"
+                },
+                {
+                  "id": "#cosmic_annotated_proximity_file",
+                  "label": "cosmic_annotated_proximity_file",
+                  "type": [
+                    "null",
+                    "File"
+                  ]
+                },
+                {
+                  "inputBinding": {
+                    "separate": true,
+                    "sbg:cmdInclude": true,
+                    "prefix": "--p-value-cutoff"
+                  },
+                  "sbg:category": "prior",
+                  "id": "#p_value_cutoff",
+                  "label": "prioritization app p value cutoff",
+                  "description": "p_value cutoff(<=), default is 0.05",
+                  "type": [
+                    "null",
+                    "float"
+                  ]
+                },
+                {
+                  "inputBinding": {
+                    "separate": true,
+                    "sbg:cmdInclude": true,
+                    "prefix": "--3d-distance-cutof"
+                  },
+                  "sbg:category": "prior",
+                  "id": "#3d_distance_cutoff",
+                  "label": "prioritization app 3D distance cutoff",
+                  "description": "--3d-distance-cutoff 3D distance cutoff (<= Angstroms), default is 20",
+                  "type": [
+                    "null",
+                    "int"
+                  ]
+                },
+                {
+                  "inputBinding": {
+                    "separate": true,
+                    "sbg:cmdInclude": true,
+                    "prefix": "--linear-cutoff"
+                  },
+                  "sbg:category": "prior",
+                  "id": "#linear_distance_cutoff",
+                  "label": "prioritization app linear distance cutoff",
+                  "description": "--linear-cutoff Linear distance cutoff (> peptides), default is 0",
+                  "type": [
+                    "null",
+                    "int"
+                  ]
+                }
+              ],
+              "sbg:createdBy": "dave",
+              "sbg:revisionsInfo": [
+                {
+                  "sbg:revisionNotes": "Copy of dave/cgrfunctional/cosmic/8",
+                  "sbg:revision": 0,
+                  "sbg:modifiedOn": 1478086621,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 1,
+                  "sbg:modifiedOn": 1478088519,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 2,
+                  "sbg:modifiedOn": 1478088540,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 3,
+                  "sbg:modifiedOn": 1478089391,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 4,
+                  "sbg:modifiedOn": 1478089612,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": "fixing prioritization output glob",
+                  "sbg:revision": 5,
+                  "sbg:modifiedOn": 1478091165,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": "exposed optional parameters",
+                  "sbg:revision": 6,
+                  "sbg:modifiedOn": 1478101851,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": "updated param labels",
+                  "sbg:revision": 7,
+                  "sbg:modifiedOn": 1478103709,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 8,
+                  "sbg:modifiedOn": 1478103837,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": null,
+                  "sbg:revision": 9,
+                  "sbg:modifiedOn": 1478103929,
+                  "sbg:modifiedBy": "dave"
+                },
+                {
+                  "sbg:revisionNotes": "updated parameter names",
+                  "sbg:revision": 10,
+                  "sbg:modifiedOn": 1478104158,
+                  "sbg:modifiedBy": "dave"
+                }
+              ],
+              "id": "https://cgc-api.sbgenomics.com/v2/apps/dave/cgrfunctional/prior/10/raw/",
+              "sbg:toolkit": "hotspot3d",
+              "label": "prior",
+              "description": "##help\n\n     Usage: hotspot3d prior [options]\n\n     REQUIRED\n     --output-dir                 Output directory\n\n     OPTIONAL\n     --p-value-cutoff             p_value cutoff(<=), default is 0.05\n     --3d-distance-cutoff         3D distance cutoff (<= Angstroms), default is 20\n     --linear-cutoff              Linear distance cutoff (> peptides), default is 0\n\n     --help                       this message\n\n## Output example\n\n     root@910a8355235c:/temp02# /opt/hotspot3d/bin/hotspot3d prior --output-dir=./\n     Q15796\n     -------.//proximityFiles/cosmicanno/Q15796.ProximityFile.csv---\n     Creating .//prioritization/Q15796.ProximityFile.csv",
+              "requirements": [
+                {
+                  "id": "#cwl-js-engine",
+                  "class": "ExpressionEngineRequirement",
+                  "requirements": [
+                    {
+                      "class": "DockerRequirement",
+                      "dockerPull": "rabix/js-engine"
+                    }
+                  ]
+                },
+                {
+                  "fileDef": [
+                    {
+                      "fileContent": {
+                        "class": "Expression",
+                        "engine": "#cwl-js-engine",
+                        "script": "'#!/bin/bash \\n\\\n\\n\\\nmkdir proximityFiles \\n\\\nmkdir proximityFiles/inProgress \\n\\\nmkdir proximityFiles/pdbCoordinateFiles \\n\\\nmkdir proximityFiles/cosmicanno \\n\\\ncp '+$job.inputs.cosmic_annotated_proximity_file.path+' proximityFiles/cosmicanno'\n\n"
+                      },
+                      "filename": "prep.sh"
+                    }
+                  ],
+                  "class": "CreateFileRequirement"
+                }
+              ],
+              "sbg:sbgMaintained": false,
+              "outputs": [
+                {
+                  "id": "#std_out",
+                  "type": [
+                    "null",
+                    "File"
+                  ],
+                  "outputBinding": {
+                    "sbg:inheritMetadataFrom": "#maf",
+                    "glob": {
+                      "class": "Expression",
+                      "engine": "#cwl-js-engine",
+                      "script": "\"std.out\""
+                    }
+                  }
+                },
+                {
+                  "id": "#prioritization_files",
+                  "type": [
+                    "null",
+                    "File"
+                  ],
+                  "outputBinding": {
+                    "sbg:inheritMetadataFrom": "#cosmic_annotated_proximity_file",
+                    "glob": {
+                      "class": "Expression",
+                      "engine": "#cwl-js-engine",
+                      "script": "\"prioritization/*.ProximityFile.csv\""
+                    }
+                  }
+                }
+              ],
+              "stdin": "",
+              "sbg:modifiedBy": "dave",
+              "sbg:revisionNotes": "updated parameter names",
+              "sbg:latestRevision": 10,
+              "sbg:modifiedOn": 1478104158,
+              "sbg:cmdPreview": "bash prep.sh && /opt/hotspot3d/bin/hotspot3d prior --output-dir=./  > std.out",
+              "class": "CommandLineTool",
+              "sbg:image_url": null,
+              "successCodes": [],
+              "sbg:project": "dave/cgrfunctional",
+              "sbg:id": "dave/cgrfunctional/prior/10",
+              "sbg:revision": 10,
+              "sbg:job": {
+                "allocatedResources": {
+                  "cpu": 1,
+                  "mem": 1000
+                },
+                "inputs": {
+                  "3d_distance_cutoff": 10,
+                  "cosmic_annotated_proximity_file": {
+                    "path": "/path/to/cosmic_annotated_proximity_file.ext",
+                    "class": "File",
+                    "size": 0,
+                    "secondaryFiles": []
+                  },
+                  "p_value_cutoff": 0.02,
+                  "hugo_uniprot_file": {
+                    "path": "/path/to/hugo_uniprot_file.ext",
+                    "class": "File",
+                    "size": 0,
+                    "secondaryFiles": []
+                  },
+                  "linear_distance_cutoff": 6
+                }
+              },
+              "arguments": [],
+              "sbg:validationErrors": [],
+              "temporaryFailCodes": [],
+              "sbg:createdOn": 1478086621,
+              "sbg:contributors": [
+                "dave"
+              ]
+            },
+            "id": "#prior",
+            "sbg:y": 541.7322508571152
+          }
+        ],
+        "sbg:modifiedBy": "dave",
+        "sbg:revisionNotes": "prior (Revision 9) which has a new update available.\nDo you want to update this node?\n\nRevision note:\n\"updated parameter names\"",
+        "sbg:latestRevision": 54,
+        "sbg:modifiedOn": 1478104328,
+        "class": "Workflow",
+        "sbg:image_url": "https://cgc-brood.sbgenomics.com/static/dave/cgrfunctional/hotspot3d-prep/54.png",
+        "sbg:createdOn": 1477590226,
+        "sbg:id": "dave/cgrfunctional/hotspot3d-prep/54",
+        "sbg:revision": 54,
+        "sbg:validationErrors": [],
+        "sbg:canvas_x": -396,
+        "sbg:project": "dave/cgrfunctional",
+        "sbg:contributors": [
+          "dave"
+        ],
+        "x": 485,
+        "y": 267.2124938964844
+      },
+      "inputs": [
+        {
+          "id": "#hotspot3d_prep.uniprot_id"
+        },
+        {
+          "id": "#hotspot3d_prep.pdb_file",
+          "source": [
+            "#pdb_file"
+          ]
+        },
+        {
+          "id": "#hotspot3d_prep.p_value_cutoff"
+        },
+        {
+          "id": "#hotspot3d_prep.maf",
+          "source": [
+            "#maf"
+          ]
+        },
+        {
+          "id": "#hotspot3d_prep.linear_distance_cutoff"
+        },
+        {
+          "id": "#hotspot3d_prep.linear_cutoff"
+        },
+        {
+          "id": "#hotspot3d_prep.ensembl_peptide_database",
+          "source": [
+            "#ensembl_peptide_database"
+          ]
+        },
+        {
+          "id": "#hotspot3d_prep.cosmic_database"
+        },
+        {
+          "id": "#hotspot3d_prep.3d_distance_cutoff_1"
+        },
+        {
+          "id": "#hotspot3d_prep.3d_distance_cutoff"
+        }
+      ],
+      "outputs": [
+        {
+          "id": "#hotspot3d_prep.pvalues_proximity_file"
+        },
+        {
+          "id": "#hotspot3d_prep.prioritization_files"
+        },
+        {
+          "id": "#hotspot3d_prep.pdbCoordinateFiles"
+        },
+        {
+          "id": "#hotspot3d_prep.hugo_uniprot_pdb_with_transcript_annotations"
+        },
+        {
+          "id": "#hotspot3d_prep.cosmic_annotations"
+        },
+        {
+          "id": "#hotspot3d_prep.annotations"
+        },
+        {
+          "id": "#hotspot3d_prep.ProximityFile_annotations"
+        }
+      ],
+      "sbg:x": 485,
+      "sbg:y": 267.2124938964844
+    }
+  ],
+  "requirements": [],
+  "inputs": [
+    {
+      "id": "#pdb_file",
+      "label": "pdb_file",
+      "sbg:x": 231,
+      "sbg:y": 86,
+      "type": [
+        "null",
+        "File"
+      ]
+    },
+    {
+      "id": "#maf",
+      "label": "maf",
+      "sbg:x": 40,
+      "sbg:y": 248,
+      "type": [
+        "null",
+        "File"
+      ]
+    },
+    {
+      "id": "#ensembl_peptide_database",
+      "label": "ensembl_peptide_database",
+      "sbg:x": 212,
+      "sbg:y": 385.9971923828125,
+      "type": [
+        "null",
+        "File"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "sbg:x": 782,
+      "sbg:y": -32,
+      "id": "#pvalues_proximity_file",
+      "sbg:includeInPorts": true,
+      "label": "pvalues_proximity_file",
+      "type": [
+        "null",
+        "File"
+      ],
+      "required": false,
+      "source": [
+        "#hotspot3d_prep.pvalues_proximity_file"
+      ]
+    },
+    {
+      "sbg:x": 1014,
+      "sbg:y": 456,
+      "id": "#pdbCoordinateFiles",
+      "sbg:includeInPorts": true,
+      "label": "pdbCoordinateFiles",
+      "type": [
+        "null",
+        {
+          "items": "File",
+          "type": "array",
+          "name": "pdbCoordinateFiles"
+        }
+      ],
+      "required": false,
+      "source": [
+        "#hotspot3d_prep.pdbCoordinateFiles"
+      ]
+    },
+    {
+      "sbg:x": 1146,
+      "sbg:y": 175,
+      "id": "#ProximityFile_annotations",
+      "sbg:includeInPorts": true,
+      "label": "ProximityFile_annotations",
+      "type": [
+        "null",
+        "File"
+      ],
+      "required": false,
+      "source": [
+        "#hotspot3d_prep.ProximityFile_annotations"
+      ]
+    },
+    {
+      "sbg:x": 990,
+      "sbg:y": 43.997161865234375,
+      "id": "#hugo_uniprot_pdb_with_transcript_annotations",
+      "sbg:includeInPorts": true,
+      "label": "hugo_uniprot_pdb_with_transcript_annotations",
+      "type": [
+        "null",
+        "File"
+      ],
+      "required": false,
+      "source": [
+        "#hotspot3d_prep.hugo_uniprot_pdb_with_transcript_annotations"
+      ]
+    },
+    {
+      "sbg:x": 1153,
+      "sbg:y": 341.9971618652344,
+      "id": "#annotations",
+      "sbg:includeInPorts": true,
+      "label": "annotations",
+      "type": [
+        "null",
+        "File"
+      ],
+      "required": false,
+      "source": [
+        "#hotspot3d_prep.annotations"
+      ]
+    }
+  ],
+  "sbg:canvas_y": 73,
+  "sbg:createdBy": "dave",
+  "sbg:canvas_zoom": 1,
+  "sbg:revisionsInfo": [
+    {
+      "sbg:revisionNotes": null,
+      "sbg:revision": 0,
+      "sbg:modifiedOn": 1477507015,
+      "sbg:modifiedBy": "dave"
+    },
+    {
+      "sbg:revisionNotes": null,
+      "sbg:revision": 1,
+      "sbg:modifiedOn": 1477507045,
+      "sbg:modifiedBy": "dave"
+    },
+    {
+      "sbg:revisionNotes": null,
+      "sbg:revision": 2,
+      "sbg:modifiedOn": 1477507134,
+      "sbg:modifiedBy": "dave"
+    },
+    {
+      "sbg:revisionNotes": null,
+      "sbg:revision": 3,
+      "sbg:modifiedOn": 1477507275,
+      "sbg:modifiedBy": "dave"
+    },
+    {
+      "sbg:revisionNotes": null,
+      "sbg:revision": 4,
+      "sbg:modifiedOn": 1477507481,
+      "sbg:modifiedBy": "dave"
+    },
+    {
+      "sbg:revisionNotes": null,
+      "sbg:revision": 5,
+      "sbg:modifiedOn": 1477507492,
+      "sbg:modifiedBy": "dave"
+    },
+    {
+      "sbg:revisionNotes": null,
+      "sbg:revision": 6,
+      "sbg:modifiedOn": 1477657223,
+      "sbg:modifiedBy": "dave"
+    },
+    {
+      "sbg:revisionNotes": null,
+      "sbg:revision": 7,
+      "sbg:modifiedOn": 1477928151,
+      "sbg:modifiedBy": "dave"
+    },
+    {
+      "sbg:revisionNotes": null,
+      "sbg:revision": 8,
+      "sbg:modifiedOn": 1477928167,
+      "sbg:modifiedBy": "dave"
+    },
+    {
+      "sbg:revisionNotes": null,
+      "sbg:revision": 9,
+      "sbg:modifiedOn": 1478104428,
+      "sbg:modifiedBy": "dave"
+    }
+  ],
+  "sbg:toolkit": "cgrFunctional",
+  "sbg:sbgMaintained": false,
+  "sbg:modifiedBy": "dave",
+  "sbg:latestRevision": 9,
+  "sbg:modifiedOn": 1478104428,
+  "sbg:id": "dave/cgrfunctional/variant-to-structure-wf-hotspot3d/9",
+  "sbg:image_url": null,
+  "sbg:project": "dave/cgrfunctional",
+  "sbg:revision": 9,
+  "sbg:validationErrors": [],
+  "sbg:canvas_x": 97,
+  "sbg:createdOn": 1477507015,
+  "sbg:contributors": [
+    "dave"
+  ],
+  "id": "dave/cgrfunctional/variant-to-structure-wf-hotspot3d/9",
+  "label": "variant_to_structure_wf_hotspot3d",
+  "description": "## Preprocessing\n\n7 required, 1 optional, 8 total\n\n         drugport  --  0) Parse drugport database (OPTIONAL)\n         uppro     --  1) Update proximity files\n         calroi    --  2) Generate region of interest (ROI) information\n         statis    --  3) Calculate p_values for pairs of mutations\n         anno      --  4) Add region of interest (ROI) annotation\n         trans     --  5) Add transcript annotation\n         cosmic    --  6) Add COSMIC annotation to proximity file\n         prior     --  7) Prioritization\n\n##Analysis\n\n4 required, 2 optional, 6 total\n       \n\n         search    --  0) 3D mutation proximity searching\n         post      --  1) Post-processing of 3D proximity searching output\n         cluster   --  2) Determine mutation-mutation and mutation-drug clusters\n         sigclus   --  3) Determine significance of clusters (BETA/OPTIONAL)\n         summary   --  4) Summarize clusters (OPTIONAL)\n         visual    --  5) Visualization of 3D proximity (OPTIONAL)",
+  "hints": []
+}
