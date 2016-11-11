@@ -1,0 +1,184 @@
+{
+  "id": "https://cgc-api.sbgenomics.com/v2/apps/dave/solvebio-integration/vcf-parser/8/raw/",
+  "class": "CommandLineTool",
+  "label": "VCF Parser",
+  "description": "",
+  "requirements": [
+    {
+      "class": "ExpressionEngineRequirement",
+      "id": "#cwl-js-engine",
+      "requirements": [
+        {
+          "class": "DockerRequirement",
+          "dockerPull": "rabix/js-engine"
+        }
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "inputBinding": {
+        "separate": true,
+        "position": 1,
+        "sbg:cmdInclude": true
+      },
+      "default": "",
+      "id": "#vcf",
+      "description": ".vcf or .vcf.gz",
+      "label": "vcf",
+      "streamable": false,
+      "type": [
+        "null",
+        "File"
+      ],
+      "required": false
+    }
+  ],
+  "outputs": [
+    {
+      "default": "",
+      "id": "#json",
+      "description": "vcf converted to json",
+      "label": "json",
+      "streamable": false,
+      "outputBinding": {
+        "sbg:inheritMetadataFrom": "#vcf",
+        "glob": {
+          "class": "Expression",
+          "engine": "#cwl-js-engine",
+          "script": "\"*.vcf.json.gz\""
+        },
+        "sbg:metadata": {
+          "tool_created_by": "vcf_parser"
+        }
+      },
+      "type": [
+        "null",
+        "File"
+      ]
+    }
+  ],
+  "hints": [
+    {
+      "class": "DockerRequirement",
+      "dockerPull": "cgrlab/solvebio-python:latest"
+    },
+    {
+      "class": "sbg:CPURequirement",
+      "value": 1
+    },
+    {
+      "class": "sbg:MemRequirement",
+      "value": 1000
+    }
+  ],
+  "baseCommand": [
+    "python",
+    "/opt/solvebio-python/solvebio/contrib/vcf_parser/vcf_parser.py"
+  ],
+  "stdin": "",
+  "stdout": "std.out",
+  "successCodes": [],
+  "temporaryFailCodes": [],
+  "arguments": [
+    {
+      "separate": true,
+      "position": 101,
+      "prefix": ">",
+      "valueFrom": {
+        "class": "Expression",
+        "engine": "#cwl-js-engine",
+        "script": "{var name = $job.inputs.vcf.name.split(\".vcf\")[0]; return name + \".vcf.json\"}"
+      }
+    },
+    {
+      "separate": true,
+      "position": 102,
+      "prefix": "&&",
+      "valueFrom": {
+        "class": "Expression",
+        "engine": "#cwl-js-engine",
+        "script": "{\nvar name = $job.inputs.vcf.name.split(\".vcf\")[0]; return \"gzip \" + name + \".vcf.json\"}"
+      }
+    },
+    {
+      "separate": true,
+      "position": 199,
+      "valueFrom": {
+        "class": "Expression",
+        "engine": "#cwl-js-engine",
+        "script": "\"&& ls -lhrt\""
+      }
+    }
+  ],
+  "sbg:createdBy": "dave",
+  "sbg:revisionsInfo": [
+    {
+      "sbg:revisionNotes": null,
+      "sbg:revision": 0,
+      "sbg:modifiedOn": 1474495067,
+      "sbg:modifiedBy": "dave"
+    },
+    {
+      "sbg:revisionNotes": null,
+      "sbg:revision": 1,
+      "sbg:modifiedOn": 1474495150,
+      "sbg:modifiedBy": "dave"
+    },
+    {
+      "sbg:revisionNotes": null,
+      "sbg:revision": 2,
+      "sbg:modifiedOn": 1474496042,
+      "sbg:modifiedBy": "dave"
+    },
+    {
+      "sbg:revisionNotes": null,
+      "sbg:revision": 3,
+      "sbg:modifiedOn": 1474496383,
+      "sbg:modifiedBy": "dave"
+    },
+    {
+      "sbg:revisionNotes": null,
+      "sbg:revision": 4,
+      "sbg:modifiedOn": 1474501550,
+      "sbg:modifiedBy": "dave"
+    },
+    {
+      "sbg:revisionNotes": null,
+      "sbg:revision": 5,
+      "sbg:modifiedOn": 1474503120,
+      "sbg:modifiedBy": "dave"
+    },
+    {
+      "sbg:revisionNotes": null,
+      "sbg:revision": 6,
+      "sbg:modifiedOn": 1474504019,
+      "sbg:modifiedBy": "dave"
+    },
+    {
+      "sbg:revisionNotes": null,
+      "sbg:revision": 7,
+      "sbg:modifiedOn": 1474563029,
+      "sbg:modifiedBy": "dave"
+    },
+    {
+      "sbg:revisionNotes": null,
+      "sbg:revision": 8,
+      "sbg:modifiedOn": 1474586866,
+      "sbg:modifiedBy": "dave"
+    }
+  ],
+  "sbg:sbgMaintained": false,
+  "sbg:modifiedBy": "dave",
+  "sbg:latestRevision": 8,
+  "sbg:modifiedOn": 1474586866,
+  "sbg:id": "dave/solvebio-integration/vcf-parser/8",
+  "sbg:image_url": null,
+  "sbg:project": "dave/solvebio-integration",
+  "sbg:revision": 8,
+  "sbg:validationErrors": [],
+  "sbg:createdOn": 1474495067,
+  "sbg:contributors": [
+    "dave"
+  ]
+}

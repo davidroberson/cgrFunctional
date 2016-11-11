@@ -1,0 +1,304 @@
+{
+  "class": "Workflow",
+  "steps": [
+    {
+      "id": "#json_to_hotspot3d_maf",
+      "run": {
+        "stdout": "std.out",
+        "hints": [
+          {
+            "class": "DockerRequirement",
+            "dockerPull": "cgrlab/tidyverse:latest"
+          },
+          {
+            "class": "sbg:CPURequirement",
+            "value": 1
+          },
+          {
+            "class": "sbg:MemRequirement",
+            "value": 1000
+          }
+        ],
+        "baseCommand": [
+          "Rscript",
+          "json_to_hotspot3d_maf.R"
+        ],
+        "inputs": [
+          {
+            "inputBinding": {
+              "separate": true,
+              "position": 0,
+              "sbg:cmdInclude": true,
+              "prefix": "--json"
+            },
+            "default": "",
+            "id": "#json",
+            "streamable": false,
+            "label": "json",
+            "required": false,
+            "description": "a json created from an annotated vcf",
+            "type": [
+              "null",
+              "File"
+            ],
+            "sbg:stageInput": "link"
+          }
+        ],
+        "sbg:createdBy": "dave",
+        "sbg:revisionsInfo": [
+          {
+            "sbg:revisionNotes": "Copy of dave/hotspot3d/ASCAT/0",
+            "sbg:revision": 0,
+            "sbg:modifiedOn": 1477591736,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 1,
+            "sbg:modifiedOn": 1477595539,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 2,
+            "sbg:modifiedOn": 1478622595,
+            "sbg:modifiedBy": "dave"
+          },
+          {
+            "sbg:revisionNotes": null,
+            "sbg:revision": 3,
+            "sbg:modifiedOn": 1478626570,
+            "sbg:modifiedBy": "dave"
+          }
+        ],
+        "id": "dave/cgrfunctional/json-to-hotspot3d-maf/3",
+        "label": "json_to_hotspot3d_maf",
+        "description": "",
+        "requirements": [
+          {
+            "id": "#cwl-js-engine",
+            "class": "ExpressionEngineRequirement",
+            "requirements": [
+              {
+                "class": "DockerRequirement",
+                "dockerPull": "rabix/js-engine"
+              }
+            ]
+          },
+          {
+            "fileDef": [
+              {
+                "fileContent": {
+                  "class": "Expression",
+                  "engine": "#cwl-js-engine",
+                  "script": "'# basic packages \\n\\\nrequire(tidyverse) \\n\\\n# get args \\n\\\nargs_json = data_frame(path = \"'+$job.inputs.json.path+'\") \\n\\\nsource(\"json_to_hotspot3d_maf.R\")';"
+                },
+                "filename": "json_to_hotspot3d_maf.R"
+              },
+              {
+                "fileContent": "require(tidyverse); require(jsonlite);\n\n#json = stream_in(file(\"\"), pagesize = 1000)\n\noutput = file(\"temp_unnest.json\", open = \"wb\")\n\njson_df = stream_in(file(args_json$path), pagesize=1, handler=\nfunction(df){\n  \ntemp = flatten(df) \n\ncat(\"\\nLength of df is \", length(temp), \"rows\\n\")\n\ntemp_unnest_ANN = temp %>% \nselect(info.ANN) %>% \nunnest(info.ANN) %>% \nmutate(ANN_number = 1:length(Distance)) %>% \ngroup_by(ANN_number) %>%\ndo(bind_cols(temp, .)) %>% \nungroup()\n\nstream_out(temp_unnest, output)})\n\n\nclose(output)\n\njson_df = as_tibble(stream_in(file(\"temp_unnest.json\")))\n\njson_df_2 = json_df %>% \nunnest(info.UCSC_KnownGene_Exomic_Variant_Detail)",
+                "filename": "json_to_hotspot3d_maf.main.R"
+              }
+            ],
+            "class": "CreateFileRequirement"
+          }
+        ],
+        "sbg:sbgMaintained": false,
+        "stdin": "",
+        "sbg:modifiedBy": "dave",
+        "outputs": [
+          {
+            "default": "",
+            "id": "#std_out",
+            "description": "standard output",
+            "label": "std_out",
+            "streamable": false,
+            "outputBinding": {
+              "glob": "\"std.out\"",
+              "sbg:metadata": {
+                "org": "cgp"
+              }
+            },
+            "type": [
+              "null",
+              "File"
+            ]
+          },
+          {
+            "default": "",
+            "id": "#maf",
+            "description": "maf file created",
+            "label": "maf",
+            "streamable": false,
+            "outputBinding": {
+              "sbg:inheritMetadataFrom": "#json",
+              "glob": {
+                "class": "Expression",
+                "engine": "#cwl-js-engine",
+                "script": "\"*.maf\""
+              },
+              "sbg:metadata": {
+                "from_tool": "json"
+              }
+            },
+            "type": [
+              "null",
+              "File"
+            ]
+          }
+        ],
+        "sbg:latestRevision": 3,
+        "sbg:modifiedOn": 1478626570,
+        "sbg:cmdPreview": "Rscript json_to_hotspot3d_maf.R  > std.out",
+        "sbg:id": "dave/cgrfunctional/json-to-hotspot3d-maf/3",
+        "sbg:image_url": null,
+        "successCodes": [],
+        "sbg:createdOn": 1477591736,
+        "sbg:job": {
+          "allocatedResources": {
+            "cpu": 1,
+            "mem": 1000
+          },
+          "inputs": {
+            "json": {
+              "path": "sample1.json.gz",
+              "class": "File",
+              "size": 0,
+              "secondaryFiles": []
+            }
+          }
+        },
+        "sbg:revision": 3,
+        "arguments": [],
+        "sbg:validationErrors": [],
+        "sbg:contributors": [
+          "dave"
+        ],
+        "temporaryFailCodes": [],
+        "sbg:project": "dave/cgrfunctional",
+        "class": "CommandLineTool",
+        "x": 667,
+        "y": 258.2124938964844
+      },
+      "inputs": [
+        {
+          "id": "#json_to_hotspot3d_maf.json",
+          "source": [
+            "#json"
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "id": "#json_to_hotspot3d_maf.std_out"
+        },
+        {
+          "id": "#json_to_hotspot3d_maf.maf"
+        }
+      ],
+      "sbg:x": 667,
+      "sbg:y": 258.2124938964844
+    }
+  ],
+  "requirements": [],
+  "inputs": [
+    {
+      "id": "#json",
+      "label": "json",
+      "sbg:x": 198,
+      "sbg:y": 244,
+      "type": [
+        "null",
+        "File"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "sbg:x": 967,
+      "sbg:y": 189,
+      "id": "#maf",
+      "sbg:includeInPorts": true,
+      "label": "maf",
+      "type": [
+        "null",
+        "File"
+      ],
+      "required": false,
+      "source": [
+        "#json_to_hotspot3d_maf.maf"
+      ]
+    }
+  ],
+  "sbg:canvas_y": 0,
+  "sbg:createdBy": "dave",
+  "sbg:canvas_zoom": 1,
+  "sbg:revisionsInfo": [
+    {
+      "sbg:revisionNotes": null,
+      "sbg:revision": 0,
+      "sbg:modifiedOn": 1478548174,
+      "sbg:modifiedBy": "dave"
+    },
+    {
+      "sbg:revisionNotes": null,
+      "sbg:revision": 1,
+      "sbg:modifiedOn": 1478548240,
+      "sbg:modifiedBy": "dave"
+    },
+    {
+      "sbg:revisionNotes": null,
+      "sbg:revision": 2,
+      "sbg:modifiedOn": 1478548256,
+      "sbg:modifiedBy": "dave"
+    },
+    {
+      "sbg:revisionNotes": "just testing json app now",
+      "sbg:revision": 3,
+      "sbg:modifiedOn": 1478622677,
+      "sbg:modifiedBy": "dave"
+    },
+    {
+      "sbg:revisionNotes": null,
+      "sbg:revision": 4,
+      "sbg:modifiedOn": 1478622934,
+      "sbg:modifiedBy": "dave"
+    },
+    {
+      "sbg:revisionNotes": "added json scatter",
+      "sbg:revision": 5,
+      "sbg:modifiedOn": 1478623497,
+      "sbg:modifiedBy": "dave"
+    },
+    {
+      "sbg:revisionNotes": null,
+      "sbg:revision": 6,
+      "sbg:modifiedOn": 1478626594,
+      "sbg:modifiedBy": "dave"
+    },
+    {
+      "sbg:revisionNotes": null,
+      "sbg:revision": 7,
+      "sbg:modifiedOn": 1478626770,
+      "sbg:modifiedBy": "dave"
+    }
+  ],
+  "sbg:sbgMaintained": false,
+  "sbg:modifiedBy": "dave",
+  "sbg:latestRevision": 7,
+  "sbg:modifiedOn": 1478626770,
+  "sbg:id": "dave/cgrfunctional/vcf-to-hotspot3d-wf-json/7",
+  "sbg:image_url": "https://cgc-brood.sbgenomics.com/static/dave/cgrfunctional/vcf-to-hotspot3d-wf-json/7.png",
+  "sbg:project": "dave/cgrfunctional",
+  "sbg:revision": 7,
+  "sbg:validationErrors": [],
+  "sbg:canvas_x": 0,
+  "sbg:createdOn": 1478548174,
+  "sbg:contributors": [
+    "dave"
+  ],
+  "id": "dave/cgrfunctional/vcf-to-hotspot3d-wf-json/7",
+  "label": "vcf_to_hotspot3d_wf.json",
+  "description": "",
+  "hints": []
+}
