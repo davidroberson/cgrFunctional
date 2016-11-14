@@ -18,15 +18,17 @@ source("~/cgrFunctional/scratch/cgc_auth.R")
 
 ```
 
+## Description
+
 Utility to create a maf from json that is compatible with hotspot3d
+
+https://igor.sbgenomics.com/u/dave/cgrfunctional/apps/#dave/cgrfunctional/json-to-hotspot3d-maf/ (restricted)
 
 ## base command
 
 ```{sh base command, eval=FALSE}
 
-json2maf.R \
---json=[vcf file] \
---output_name=[file prefix of output maf file]
+json2maf.R --json [json file to convert to maf] 
 
 ```
 

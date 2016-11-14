@@ -1,6 +1,7 @@
 JSON to Hotspot3d MAF
 ================
 
+-   [Description](#description)
 -   [base command](#base-command)
 -   [i/o](#io)
     -   [inputs](#inputs)
@@ -14,16 +15,19 @@ JSON to Hotspot3d MAF
     -   [push app to cloud platform](#push-app-to-cloud-platform)
     -   [notes](#notes)
 
+Description
+-----------
+
 Utility to create a maf from json that is compatible with hotspot3d
+
+<https://igor.sbgenomics.com/u/dave/cgrfunctional/apps/#dave/cgrfunctional/json-to-hotspot3d-maf/> (restricted)
 
 base command
 ------------
 
 ``` sh
 
-json2maf.R \
---json=[vcf file] \
---output_name=[file prefix of output maf file]
+json2maf.R --json [json file to convert to maf] 
 ```
 
 i/o
