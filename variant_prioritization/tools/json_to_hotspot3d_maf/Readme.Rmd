@@ -1,18 +1,26 @@
-## JSON to Hotspot3d MAF {.tabset}
+---
+title: "JSON to Hotspot3d MAF"
+output:
+  github_document:
+    toc: true
+    fig_width: 5
+    fig_height: 5
+    dev: jpeg
+---
 
 ```{r include = FALSE}
-require(rmarkdown); require(knitr); require(sevenbridges); require(readr)
+require(tidyverse); require(rmarkdown); require(knitr); require(sevenbridges); 
 
 options(max.print = "99"); opts_knit$set(width = 99)
 opts_chunk$set(cache=FALSE, tidy=FALSE)
 
-#source("cgc_auth.R")
+source("~/cgrFunctional/scratch/cgc_auth.R")
 
 ```
 
 Utility to create a maf from json that is compatible with hotspot3d
 
-### base command
+## base command
 
 ```{sh base command, eval=FALSE}
 
@@ -22,17 +30,9 @@ json2maf.R \
 
 ```
 
+## i/o
 
-### notes
-
-Very important R package "jsonlite"
-
-http://jeroenooms.github.io/mongo-slides/#19
-
-
-### i/o {.tabset}
-
-#### inputs
+### inputs
 
 ```{r inputs}
 
@@ -44,7 +44,7 @@ input(id = "json", label = "json", description = "a json created from an annotat
 
 ```
 
-#### arguments
+### arguments
 
 ```{r arguments}
 arguments = CCBList(
@@ -52,7 +52,7 @@ CommandLineBinding(position = 99, valueFrom = list('"&& ls -lR"'))
 )
 ```
 
-#### outputs
+### outputs
 
 ```{r output}
 
@@ -74,23 +74,23 @@ script = '"*.maf"'))
 
 ```
 
-#### add on scripts
+### add on scripts
 
 ```{r add on scripts}
 
-json_to_hotspot3d_maf_R = fileDef(name = "json_to_hotspot3d_maf.R", content = read_file("json_to_hotspot3d_maf.R"))
+json_to_hotspot3d_maf_R = fileDef(name = "json_to_hotspot3d_maf.main.R", content = read_file("json_to_hotspot3d_maf.main.R"))
 
 ```
 
-### portability {.tabset}
+## Containerization
 
-####docker
+### Docker
 
 The docker conatiner is
 
-``` cgrlab/feather:latest ```
+``` cgrlab/tidyverse:latest ```
 
-####tool definition
+### tool definition
 
 ```{r 5 create tool object}
 
@@ -111,14 +111,21 @@ outputs = outputs)
 
 ```
 
-####cwl file
+### cwl file
 
 ```{r eval=create_cwl=="yes"}
-write(tool$toJSON(pretty = TRUE), "../ascat.json")
+write(tool$toJSON(pretty = TRUE), "../cwl.json")
 ```
 
-####push app to cloud platform
+### push app to cloud platform
 
 ```{r eval=platform_push=="yes"}
-project$app_add("ASCAT", tool)
+project$app_add("json_to_hotspot3d_maf", tool)
 ```
+
+
+### notes
+
+Very important R package "jsonlite"
+
+http://jeroenooms.github.io/mongo-slides/#19
