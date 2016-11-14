@@ -1,4 +1,4 @@
-require(tidyverse); require(jsonlite);
+require(tidyverse); require(jsonlite); require(stringr);
 #Tumor_Sample_Barcode args_json$sample_id
 
 output = file("maf.json", open = "wb")
@@ -30,8 +30,10 @@ Tumor_Seq_Allele1,
 Tumor_Seq_Allele2,
 Tumor_Sample_Barcode,
 transcript_name = Feature_ID,
-amino_acid_change = HGVS_c) %>% 
-unnest()
+amino_acid_change = HGVS_p) %>% 
+unnest() %>% 
+mutate(Chromosome = str_split_fixed(.$Chromosome, "chr", 2)[2]) %>% 
+mutate(amino_acid_change = ifelse(is.na(amino_acid_change), "No_record", amino_acid_change))
 
 stream_out(temp_unnest, output)})
 
