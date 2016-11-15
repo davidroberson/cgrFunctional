@@ -1,0 +1,98 @@
+{
+  "sbg:id": "concatenate_tsv",
+  "id": "#concatenate_tsv",
+  "inputs": [
+    {
+      "type": [
+        "null",
+        {
+          "items": "File",
+          "type": "array"
+        }
+      ],
+      "label": "tsv_files",
+      "description": "tsv_files",
+      "streamable": false,
+      "default": "",
+      "id": "#tsv_files",
+      "inputBinding": {
+        "position": 0,
+        "prefix": "--tsv_files=",
+        "separate": true,
+        "sbg:cmdInclude": true
+      },
+      "required": false
+    }
+  ],
+  "outputs": [
+    {
+      "type": ["null", "File"],
+      "label": "std_out",
+      "description": "standard output",
+      "streamable": false,
+      "default": "",
+      "id": "#std_out",
+      "outputBinding": {
+        "glob": "\"std.out\"",
+        "sbg:metadata": {
+          "from_tool": "merge_tsv"
+        }
+      }
+    },
+    {
+      "type": ["null", "File"],
+      "label": "merged_tsv",
+      "description": "merged_tsv",
+      "streamable": false,
+      "default": "",
+      "id": "#merged_tsv",
+      "outputBinding": {
+        "glob": {
+          "engine": "#cwl-js-engine",
+          "script": "\"*.merged.tsv\"",
+          "class": "Expression"
+        },
+        "sbg:inheritMetadataFrom": "#tsv_files",
+        "sbg:metadata": {
+          "from_tool": "merge_tsv"
+        }
+      }
+    }
+  ],
+  "requirements": [
+    {
+      "class": "CreateFileRequirement",
+      "fileDef": [
+        {
+          "filename": "concatenate_tsv.main.R",
+          "fileContent": "require(tidyverse);\n\ntemp = data_frame(filename = dir(\"./\", \".tsv\")) %>% \ngroup_by(filename) %>% \ndo(read_tsv(.$filename)) %>% \nselect(-filename)\n\nwrite_tsv(temp, paste0(args_tsv$sample_id, \".maf\"))\n\n\n"
+        },
+        {
+          "filename": "concatenate_tsv.R.js",
+          "fileContent": "'# basic packages \\n\\\nrequire(tidyverse) \\n\\\n# get args \\n\\\nargs_tsv = data_frame(path = \"'+$job.inputs.tsv_files.path+'\", sample_id = \"'+$job.inputs.tsv_files.metadata.sample_id+'\" ) \\n\\\nsource(\"concatenate_tsv.main.R\")';\n"
+        }
+      ]
+    }
+  ],
+  "hints": [
+    {
+      "class": "DockerRequirement",
+      "dockerPull": "cgrlab/tidyverse:latest"
+    },
+    {
+      "class": "sbg:CPURequirement",
+      "value": 1
+    },
+    {
+      "class": "sbg:MemRequirement",
+      "value": 1000
+    }
+  ],
+  "label": "concatenate_tsv",
+  "class": "CommandLineTool",
+  "baseCommand": [
+    "Rscript concatenate_tsv.R"
+  ],
+  "arguments": [],
+  "stdout": "std.out"
+}

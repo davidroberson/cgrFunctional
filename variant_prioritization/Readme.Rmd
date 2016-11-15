@@ -17,7 +17,15 @@ source("~/cgrFunctional/scratch/cgc_auth.R")
 
 ```
 
-#Hotspot 3D Prep
+# VCF 2 Hotspot 3D MAF
+
+```{r child = '~/cgrFunctional/variant_prioritization/workflows/vcf_to_hotspot3d_maf/Readme.Rmd'}
+```
+
+
+# Hotspot 3D Prep
 
 ```{r child = '~/cgrFunctional/variant_prioritization/workflows/hotspot3d_prep/Readme.Rmd'}
 ```
+
+

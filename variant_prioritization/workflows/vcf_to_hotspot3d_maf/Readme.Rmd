@@ -1,0 +1,22 @@
+---
+title: "VCF to HotSpot3D MAF WF"
+output:
+  github_document:
+    fig_width: 5
+    fig_height: 5
+    dev: jpeg
+---
+
+```{r include = FALSE}
+require(tidyverse); require(rmarkdown); require(knitr); require(sevenbridges); 
+
+options(max.print = "99"); opts_knit$set(width = 99)
+opts_chunk$set(cache=FALSE, tidy=FALSE)
+
+source("~/cgrRNA/scratch/cgc_auth.R")
+
+```
+
+<a href="https://brood.sbgenomics.com/static/dave/cgrfunctional/json-to-hotspot3d-maf-wf/24.png" target="_blank">
+<img width="1200" border="0" align="center"src="https://brood.sbgenomics.com/static/dave/cgrfunctional/json-to-hotspot3d-maf-wf/24.png"/>
+</a>

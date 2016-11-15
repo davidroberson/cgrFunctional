@@ -1,14 +1,464 @@
 {
-  "class": "Workflow",
+  "sbg:latestRevision": 24,
+  "sbg:revision": 24,
+  "sbg:revisionsInfo": [
+    {
+      "sbg:modifiedOn": 1479148278,
+      "sbg:revision": 0,
+      "sbg:modifiedBy": "dave",
+      "sbg:revisionNotes": null
+    },
+    {
+      "sbg:modifiedOn": 1479148357,
+      "sbg:revision": 1,
+      "sbg:modifiedBy": "dave",
+      "sbg:revisionNotes": "c4.large"
+    },
+    {
+      "sbg:modifiedOn": 1479150498,
+      "sbg:revision": 2,
+      "sbg:modifiedBy": "dave",
+      "sbg:revisionNotes": null
+    },
+    {
+      "sbg:modifiedOn": 1479151674,
+      "sbg:revision": 3,
+      "sbg:modifiedBy": "dave",
+      "sbg:revisionNotes": "default instance"
+    },
+    {
+      "sbg:modifiedOn": 1479155353,
+      "sbg:revision": 4,
+      "sbg:modifiedBy": "dave",
+      "sbg:revisionNotes": "c3.8xlarge"
+    },
+    {
+      "sbg:modifiedOn": 1479155495,
+      "sbg:revision": 5,
+      "sbg:modifiedBy": "dave",
+      "sbg:revisionNotes": null
+    },
+    {
+      "sbg:modifiedOn": 1479155610,
+      "sbg:revision": 6,
+      "sbg:modifiedBy": "dave",
+      "sbg:revisionNotes": "c4.large"
+    },
+    {
+      "sbg:modifiedOn": 1479156610,
+      "sbg:revision": 7,
+      "sbg:modifiedBy": "dave",
+      "sbg:revisionNotes": null
+    },
+    {
+      "sbg:modifiedOn": 1479157025,
+      "sbg:revision": 8,
+      "sbg:modifiedBy": "dave",
+      "sbg:revisionNotes": null
+    },
+    {
+      "sbg:modifiedOn": 1479157120,
+      "sbg:revision": 9,
+      "sbg:modifiedBy": "dave",
+      "sbg:revisionNotes": null
+    },
+    {
+      "sbg:modifiedOn": 1479157779,
+      "sbg:revision": 10,
+      "sbg:modifiedBy": "dave",
+      "sbg:revisionNotes": "c3.8xlarge"
+    },
+    {
+      "sbg:modifiedOn": 1479159764,
+      "sbg:revision": 11,
+      "sbg:modifiedBy": "dave",
+      "sbg:revisionNotes": "added json_splitter and scatter"
+    },
+    {
+      "sbg:modifiedOn": 1479160755,
+      "sbg:revision": 12,
+      "sbg:modifiedBy": "dave",
+      "sbg:revisionNotes": "c4.large"
+    },
+    {
+      "sbg:modifiedOn": 1479161466,
+      "sbg:revision": 13,
+      "sbg:modifiedBy": "dave",
+      "sbg:revisionNotes": "c3.8xlarge"
+    },
+    {
+      "sbg:modifiedOn": 1479168790,
+      "sbg:revision": 14,
+      "sbg:modifiedBy": "dave",
+      "sbg:revisionNotes": null
+    },
+    {
+      "sbg:modifiedOn": 1479169853,
+      "sbg:revision": 15,
+      "sbg:modifiedBy": "dave",
+      "sbg:revisionNotes": null
+    },
+    {
+      "sbg:modifiedOn": 1479170088,
+      "sbg:revision": 16,
+      "sbg:modifiedBy": "dave",
+      "sbg:revisionNotes": null
+    },
+    {
+      "sbg:modifiedOn": 1479170289,
+      "sbg:revision": 17,
+      "sbg:modifiedBy": "dave",
+      "sbg:revisionNotes": null
+    },
+    {
+      "sbg:modifiedOn": 1479170712,
+      "sbg:revision": 18,
+      "sbg:modifiedBy": "dave",
+      "sbg:revisionNotes": null
+    },
+    {
+      "sbg:modifiedOn": 1479177134,
+      "sbg:revision": 19,
+      "sbg:modifiedBy": "dave",
+      "sbg:revisionNotes": null
+    },
+    {
+      "sbg:modifiedOn": 1479178166,
+      "sbg:revision": 20,
+      "sbg:modifiedBy": "dave",
+      "sbg:revisionNotes": null
+    },
+    {
+      "sbg:modifiedOn": 1479178488,
+      "sbg:revision": 21,
+      "sbg:modifiedBy": "dave",
+      "sbg:revisionNotes": null
+    },
+    {
+      "sbg:modifiedOn": 1479178856,
+      "sbg:revision": 22,
+      "sbg:modifiedBy": "dave",
+      "sbg:revisionNotes": null
+    },
+    {
+      "sbg:modifiedOn": 1479178899,
+      "sbg:revision": 23,
+      "sbg:modifiedBy": "dave",
+      "sbg:revisionNotes": null
+    },
+    {
+      "sbg:modifiedOn": 1479179844,
+      "sbg:revision": 24,
+      "sbg:modifiedBy": "dave",
+      "sbg:revisionNotes": null
+    }
+  ],
+  "sbg:sbgMaintained": false,
+  "sbg:modifiedBy": "dave",
+  "sbg:contributors": [
+    "dave"
+  ],
+  "sbg:createdOn": 1479148278,
+  "sbg:image_url": "https://brood.sbgenomics.com/static/dave/cgrfunctional/json-to-hotspot3d-maf-wf/24.png",
+  "sbg:modifiedOn": 1479179844,
+  "sbg:batchBy": {
+    "type": "item"
+  },
+  "outputs": [
+    {
+      "sbg:x": 874.9999796549481,
+      "id": "#HotSpot3D_MAF",
+      "source": [
+        "#concatenate_tsv.merged_tsv"
+      ],
+      "sbg:includeInPorts": true,
+      "sbg:y": 102.3333320617676,
+      "type": [
+        "null",
+        "File"
+      ],
+      "label": "Hotspot3D_MAF",
+      "required": false
+    }
+  ],
+  "inputs": [
+    {
+      "sbg:x": -92,
+      "id": "#vcf",
+      "type": [
+        "null",
+        "File"
+      ],
+      "label": "vcf",
+      "sbg:y": 184.99998474121094
+    },
+    {
+      "id": "#token",
+      "description": "SolveBio API token",
+      "type": [
+        "string"
+      ],
+      "label": "token"
+    },
+    {
+      "id": "#run_mode",
+      "description": "Should the app push to solve",
+      "type": [
+        "null",
+        {
+          "name": "run_mode",
+          "symbols": [
+            "push",
+            "skip"
+          ],
+          "type": "enum"
+        }
+      ]
+    },
+    {
+      "id": "#dataset",
+      "description": "Name of the SolveBio dataset to append to or create. Should follow the formatting {Depository}/{Version}/{Dataset}.",
+      "type": [
+        "string"
+      ],
+      "label": "dataset"
+    },
+    {
+      "id": "#token_1",
+      "description": "SolveBio API token",
+      "type": [
+        "string"
+      ],
+      "label": "push VCF to SolveBio"
+    },
+    {
+      "id": "#run_mode_1",
+      "description": "Should the app push to solve",
+      "type": [
+        "null",
+        {
+          "name": "run_mode",
+          "symbols": [
+            "push",
+            "skip"
+          ],
+          "type": "enum"
+        }
+      ]
+    },
+    {
+      "id": "#dataset_1",
+      "description": "Name of the SolveBio dataset to append to or create. Should follow the formatting {Depository}/{Version}/{Dataset}.",
+      "type": [
+        "string"
+      ],
+      "label": "dataset"
+    }
+  ],
+  "sbg:id": "dave/cgrfunctional/json-to-hotspot3d-maf-wf/24",
+  "sbg:canvas_y": 46,
+  "id": "https://api.sbgenomics.com/v2/apps/dave/cgrfunctional/json-to-hotspot3d-maf-wf/24/raw/",
+  "hints": [
+    {
+      "class": "sbg:AWSInstanceType",
+      "value": "c3.8xlarge"
+    }
+  ],
   "steps": [
     {
+      "sbg:x": 457.66666666666686,
       "id": "#json_to_hotspot3d_maf",
+      "scatter": "#json_to_hotspot3d_maf.json",
+      "outputs": [
+        {
+          "id": "#json_to_hotspot3d_maf.std_out"
+        },
+        {
+          "id": "#json_to_hotspot3d_maf.maf"
+        }
+      ],
+      "inputs": [
+        {
+          "id": "#json_to_hotspot3d_maf.json",
+          "source": [
+            "#json_spliter.split_json_files"
+          ]
+        }
+      ],
+      "sbg:y": 323.5333455403647,
       "run": {
-        "stdout": "std.out",
+        "sbg:latestRevision": 8,
+        "baseCommand": [
+          "Rscript",
+          "json_to_hotspot3d_maf.R"
+        ],
+        "appUrl": "/u/dave/cgrfunctional/apps/#dave/cgrfunctional/json-to-hotspot3d-maf/8",
+        "sbg:revisionsInfo": [
+          {
+            "sbg:modifiedOn": 1479146021,
+            "sbg:revision": 0,
+            "sbg:modifiedBy": "dave",
+            "sbg:revisionNotes": null
+          },
+          {
+            "sbg:modifiedOn": 1479147087,
+            "sbg:revision": 1,
+            "sbg:modifiedBy": "dave",
+            "sbg:revisionNotes": null
+          },
+          {
+            "sbg:modifiedOn": 1479147808,
+            "sbg:revision": 2,
+            "sbg:modifiedBy": "dave",
+            "sbg:revisionNotes": null
+          },
+          {
+            "sbg:modifiedOn": 1479150345,
+            "sbg:revision": 3,
+            "sbg:modifiedBy": "dave",
+            "sbg:revisionNotes": null
+          },
+          {
+            "sbg:modifiedOn": 1479150477,
+            "sbg:revision": 4,
+            "sbg:modifiedBy": "dave",
+            "sbg:revisionNotes": null
+          },
+          {
+            "sbg:modifiedOn": 1479155478,
+            "sbg:revision": 5,
+            "sbg:modifiedBy": "dave",
+            "sbg:revisionNotes": null
+          },
+          {
+            "sbg:modifiedOn": 1479156594,
+            "sbg:revision": 6,
+            "sbg:modifiedBy": "dave",
+            "sbg:revisionNotes": null
+          },
+          {
+            "sbg:modifiedOn": 1479157007,
+            "sbg:revision": 7,
+            "sbg:modifiedBy": "dave",
+            "sbg:revisionNotes": null
+          },
+          {
+            "sbg:modifiedOn": 1479157105,
+            "sbg:revision": 8,
+            "sbg:modifiedBy": "dave",
+            "sbg:revisionNotes": null
+          }
+        ],
+        "sbg:sbgMaintained": false,
+        "sbg:modifiedBy": "dave",
+        "sbg:contributors": [
+          "dave"
+        ],
+        "sbg:revision": 8,
+        "sbg:createdOn": 1479146021,
+        "sbg:image_url": null,
+        "sbg:modifiedOn": 1479157105,
+        "requirements": [
+          {
+            "id": "#cwl-js-engine",
+            "class": "ExpressionEngineRequirement",
+            "requirements": [
+              {
+                "dockerPull": "rabix/js-engine",
+                "class": "DockerRequirement"
+              }
+            ]
+          },
+          {
+            "fileDef": [
+              {
+                "fileContent": {
+                  "class": "Expression",
+                  "script": "'# basic packages \\n\\\nrequire(tidyverse) \\n\\\n# get args \\n\\\nargs_json = data_frame(path = \"'+$job.inputs.json.path+'\", sample_id = \"'+$job.inputs.json.metadata.sample_id+'\" ) \\n\\\nsource(\"json_to_hotspot3d_maf.main.R\")';\n",
+                  "engine": "#cwl-js-engine"
+                },
+                "filename": "json_to_hotspot3d_maf.R"
+              },
+              {
+                "fileContent": "require(tidyverse); require(jsonlite); require(stringr);\n#Tumor_Sample_Barcode args_json$sample_id\n\noutput = file(\"maf.json\", open = \"wb\")\n\njson_df = stream_in(file(args_json$path), pagesize=1, handler=\nfunction(df){\n\ntemp = flatten(df, recursive=TRUE)\n\ntemp_unnest = temp %>%\nselect(info.ANN) %>%\nunnest(info.ANN) %>%\nmutate(ANN_number = 1:length(Distance)) %>% \nmutate(sample_id = args_json$sample_id) %>% \ngroup_by(ANN_number) %>%\ndo(bind_cols(temp, .)) %>%\nungroup() %>%\nmutate(Tumor_Sample_Barcode = sample_id) %>% \nmutate(Tumor_Seq_Allele1 = allele) %>% \nmutate(Tumor_Seq_Allele2 = allele) %>% \nselect(\nHugo_Symbol = Gene_Name,\nChromosome = genomic_coordinates.chromosome,\nStart_Position = genomic_coordinates.start,\nEnd_Position = genomic_coordinates.stop,\nVariant_Classification = Annotation,\nReference_Allele = reference_allele,\nTumor_Seq_Allele1,\nTumor_Seq_Allele2,\nTumor_Sample_Barcode,\ntranscript_name = Feature_ID,\namino_acid_change = HGVS_p) %>% \nunnest() %>% \nmutate(Chromosome = str_split_fixed(.$Chromosome, \"chr\", 2)[2]) %>% \nmutate(amino_acid_change = ifelse(is.na(amino_acid_change), \"No_record\", amino_acid_change))\n\nstream_out(temp_unnest, output)})\n\nclose(output)\n\nmaf = stream_in(file(\"maf.json\"))\n\nwrite_tsv(maf, paste0(args_json$sample_id, \"_hotspot3d.maf\"))\n\nsave.image(\"json_to_hotspot3d_maf.Rda\")",
+                "filename": "json_to_hotspot3d_maf.main.R"
+              }
+            ],
+            "class": "CreateFileRequirement"
+          }
+        ],
+        "successCodes": [],
+        "outputs": [
+          {
+            "streamable": false,
+            "id": "#std_out",
+            "outputBinding": {
+              "sbg:metadata": {
+                "org": "cgp"
+              },
+              "glob": "\"std.out\""
+            },
+            "type": [
+              "null",
+              "File"
+            ],
+            "description": "standard output",
+            "default": "",
+            "label": "std_out"
+          },
+          {
+            "streamable": false,
+            "id": "#maf",
+            "outputBinding": {
+              "sbg:metadata": {
+                "from_tool": "json"
+              },
+              "glob": {
+                "class": "Expression",
+                "script": "\"*.maf\"",
+                "engine": "#cwl-js-engine"
+              },
+              "sbg:inheritMetadataFrom": "#json"
+            },
+            "type": [
+              "null",
+              "File"
+            ],
+            "description": "maf file created",
+            "default": "",
+            "label": "maf"
+          }
+        ],
+        "sbg:cmdPreview": "Rscript json_to_hotspot3d_maf.R  > std.out",
+        "inputs": [
+          {
+            "streamable": false,
+            "id": "#json",
+            "inputBinding": {
+              "separate": true,
+              "prefix": "--json",
+              "sbg:cmdInclude": true,
+              "position": 0
+            },
+            "type": [
+              "null",
+              "File"
+            ],
+            "sbg:stageInput": "link",
+            "description": "a json created from an annotated vcf",
+            "default": "",
+            "label": "json",
+            "required": false
+          }
+        ],
+        "sbg:id": "dave/cgrfunctional/json-to-hotspot3d-maf/8",
+        "temporaryFailCodes": [],
+        "id": "dave/cgrfunctional/json-to-hotspot3d-maf/8",
+        "description": "",
         "hints": [
           {
-            "class": "DockerRequirement",
-            "dockerPull": "cgrlab/tidyverse:latest"
+            "dockerPull": "cgrlab/tidyverse:latest",
+            "class": "DockerRequirement"
           },
           {
             "class": "sbg:CPURequirement",
@@ -19,286 +469,1239 @@
             "value": 1000
           }
         ],
+        "arguments": [],
+        "sbg:createdBy": "dave",
+        "label": "json_to_hotspot3d_maf",
+        "stdin": "",
+        "sbg:project": "dave/cgrfunctional",
+        "sbg:validationErrors": [],
+        "class": "CommandLineTool",
+        "y": 323.5333455403647,
+        "x": 457.66666666666686,
+        "sbg:job": {
+          "inputs": {
+            "json": {
+              "metadata": {
+                "sample_id": "SA01234"
+              },
+              "class": "File",
+              "path": "sample1.json.gz",
+              "secondaryFiles": [],
+              "size": 0
+            }
+          },
+          "allocatedResources": {
+            "cpu": 1,
+            "mem": 1000
+          }
+        },
+        "stdout": "std.out"
+      }
+    },
+    {
+      "sbg:x": 268.66666666666674,
+      "id": "#json_spliter",
+      "outputs": [
+        {
+          "id": "#json_spliter.split_json_files"
+        }
+      ],
+      "inputs": [
+        {
+          "id": "#json_spliter.compressed_json",
+          "source": [
+            "#VCF_Parser.json"
+          ]
+        }
+      ],
+      "sbg:y": 175.2000122070313,
+      "run": {
+        "sbg:latestRevision": 3,
         "baseCommand": [
-          "Rscript",
-          "json_to_hotspot3d_maf.R"
-        ],
-        "inputs": [
+          "gunzip",
           {
-            "inputBinding": {
-              "separate": true,
-              "position": 0,
-              "sbg:cmdInclude": true,
-              "prefix": "--json"
-            },
-            "default": "",
-            "id": "#json",
-            "streamable": false,
-            "label": "json",
-            "required": false,
-            "description": "a json created from an annotated vcf",
-            "type": [
-              "null",
-              "File"
-            ],
-            "sbg:stageInput": "link"
+            "class": "Expression",
+            "script": "$job.inputs.compressed_json.path",
+            "engine": "#cwl-js-engine"
+          },
+          "&&",
+          "split",
+          "--additional-suffix=_split.json",
+          "-d",
+          "-l",
+          "1000",
+          {
+            "class": "Expression",
+            "script": "$job.inputs.compressed_json.path.split(\"/\").reverse()[0].split(\".gz\")[0]",
+            "engine": "#cwl-js-engine"
+          },
+          {
+            "class": "Expression",
+            "script": "$job.inputs.compressed_json.path.split(\"/\").reverse()[0].split(\".json.gz\")[0]+\"_\"",
+            "engine": "#cwl-js-engine"
           }
         ],
-        "sbg:createdBy": "dave",
+        "sbg:revision": 3,
         "sbg:revisionsInfo": [
           {
-            "sbg:revisionNotes": "Copy of dave/hotspot3d/ASCAT/0",
+            "sbg:modifiedOn": 1479159177,
             "sbg:revision": 0,
-            "sbg:modifiedOn": 1477591736,
-            "sbg:modifiedBy": "dave"
+            "sbg:modifiedBy": "dave",
+            "sbg:revisionNotes": null
           },
           {
-            "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1479159640,
             "sbg:revision": 1,
-            "sbg:modifiedOn": 1477595539,
-            "sbg:modifiedBy": "dave"
+            "sbg:modifiedBy": "dave",
+            "sbg:revisionNotes": null
           },
           {
-            "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1479160514,
             "sbg:revision": 2,
-            "sbg:modifiedOn": 1478622595,
-            "sbg:modifiedBy": "dave"
+            "sbg:modifiedBy": "dave",
+            "sbg:revisionNotes": null
           },
           {
-            "sbg:revisionNotes": null,
+            "sbg:modifiedOn": 1479160716,
             "sbg:revision": 3,
-            "sbg:modifiedOn": 1478626570,
-            "sbg:modifiedBy": "dave"
+            "sbg:modifiedBy": "dave",
+            "sbg:revisionNotes": null
           }
         ],
-        "id": "dave/cgrfunctional/json-to-hotspot3d-maf/3",
-        "label": "json_to_hotspot3d_maf",
-        "description": "",
+        "sbg:sbgMaintained": false,
+        "sbg:modifiedBy": "dave",
+        "sbg:contributors": [
+          "dave"
+        ],
+        "sbg:createdOn": 1479159177,
+        "label": "json_spliter",
+        "sbg:modifiedOn": 1479160716,
         "requirements": [
           {
             "id": "#cwl-js-engine",
             "class": "ExpressionEngineRequirement",
             "requirements": [
               {
-                "class": "DockerRequirement",
-                "dockerPull": "rabix/js-engine"
+                "dockerPull": "rabix/js-engine",
+                "class": "DockerRequirement"
               }
             ]
-          },
-          {
-            "fileDef": [
-              {
-                "fileContent": {
-                  "class": "Expression",
-                  "engine": "#cwl-js-engine",
-                  "script": "'# basic packages \\n\\\nrequire(tidyverse) \\n\\\n# get args \\n\\\nargs_json = data_frame(path = \"'+$job.inputs.json.path+'\") \\n\\\nsource(\"json_to_hotspot3d_maf.R\")';"
-                },
-                "filename": "json_to_hotspot3d_maf.R"
-              },
-              {
-                "fileContent": "require(tidyverse); require(jsonlite);\n\n#json = stream_in(file(\"\"), pagesize = 1000)\n\noutput = file(\"temp_unnest.json\", open = \"wb\")\n\njson_df = stream_in(file(args_json$path), pagesize=1, handler=\nfunction(df){\n  \ntemp = flatten(df) \n\ncat(\"\\nLength of df is \", length(temp), \"rows\\n\")\n\ntemp_unnest_ANN = temp %>% \nselect(info.ANN) %>% \nunnest(info.ANN) %>% \nmutate(ANN_number = 1:length(Distance)) %>% \ngroup_by(ANN_number) %>%\ndo(bind_cols(temp, .)) %>% \nungroup()\n\nstream_out(temp_unnest, output)})\n\n\nclose(output)\n\njson_df = as_tibble(stream_in(file(\"temp_unnest.json\")))\n\njson_df_2 = json_df %>% \nunnest(info.UCSC_KnownGene_Exomic_Variant_Detail)",
-                "filename": "json_to_hotspot3d_maf.main.R"
-              }
-            ],
-            "class": "CreateFileRequirement"
           }
         ],
-        "sbg:sbgMaintained": false,
-        "stdin": "",
-        "sbg:modifiedBy": "dave",
+        "successCodes": [],
         "outputs": [
           {
-            "default": "",
-            "id": "#std_out",
-            "description": "standard output",
-            "label": "std_out",
-            "streamable": false,
-            "outputBinding": {
-              "glob": "\"std.out\"",
-              "sbg:metadata": {
-                "org": "cgp"
-              }
-            },
+            "id": "#split_json_files",
             "type": [
               "null",
-              "File"
-            ]
-          },
-          {
-            "default": "",
-            "id": "#maf",
-            "description": "maf file created",
-            "label": "maf",
-            "streamable": false,
+              {
+                "items": "File",
+                "type": "array"
+              }
+            ],
             "outputBinding": {
-              "sbg:inheritMetadataFrom": "#json",
               "glob": {
                 "class": "Expression",
-                "engine": "#cwl-js-engine",
-                "script": "\"*.maf\""
+                "script": "\"*split.json\"",
+                "engine": "#cwl-js-engine"
               },
-              "sbg:metadata": {
-                "from_tool": "json"
-              }
-            },
+              "sbg:inheritMetadataFrom": "#compressed_json"
+            }
+          }
+        ],
+        "sbg:cmdPreview": "gunzip path/to/SA01234.json.gz && split --additional-suffix=_split.json -d -l 1000 SA01234.json SA01234_",
+        "inputs": [
+          {
+            "id": "#compressed_json",
+            "sbg:stageInput": "copy",
             "type": [
               "null",
               "File"
-            ]
+            ],
+            "required": false
           }
         ],
-        "sbg:latestRevision": 3,
-        "sbg:modifiedOn": 1478626570,
-        "sbg:cmdPreview": "Rscript json_to_hotspot3d_maf.R  > std.out",
-        "sbg:id": "dave/cgrfunctional/json-to-hotspot3d-maf/3",
+        "sbg:id": "dave/cgrfunctional/json-spliter/3",
+        "temporaryFailCodes": [],
+        "id": "dave/cgrfunctional/json-spliter/3",
+        "description": "will split a json.gz into chunks of 1000 lines each.",
+        "hints": [
+          {
+            "class": "sbg:CPURequirement",
+            "value": 1
+          },
+          {
+            "class": "sbg:MemRequirement",
+            "value": 1000
+          },
+          {
+            "dockerPull": "cgrlab/tidyverse:latest",
+            "class": "DockerRequirement",
+            "dockerImageId": ""
+          }
+        ],
+        "arguments": [],
+        "sbg:createdBy": "dave",
         "sbg:image_url": null,
-        "successCodes": [],
-        "sbg:createdOn": 1477591736,
+        "stdin": "",
+        "sbg:project": "dave/cgrfunctional",
+        "sbg:validationErrors": [],
+        "class": "CommandLineTool",
+        "y": 175.2000122070313,
+        "x": 268.66666666666674,
         "sbg:job": {
+          "inputs": {
+            "compressed_json": {
+              "class": "File",
+              "path": "path/to/SA01234.json.gz",
+              "secondaryFiles": [],
+              "size": 0
+            }
+          },
           "allocatedResources": {
             "cpu": 1,
             "mem": 1000
-          },
-          "inputs": {
-            "json": {
-              "path": "sample1.json.gz",
-              "class": "File",
-              "size": 0,
-              "secondaryFiles": []
-            }
           }
         },
-        "sbg:revision": 3,
-        "arguments": [],
-        "sbg:validationErrors": [],
+        "stdout": ""
+      }
+    },
+    {
+      "sbg:x": 890.3333333333335,
+      "id": "#push_to_solvebio",
+      "outputs": [
+        {
+          "id": "#push_to_solvebio.summary_out"
+        }
+      ],
+      "inputs": [
+        {
+          "id": "#push_to_solvebio.token",
+          "source": [
+            "#token"
+          ]
+        },
+        {
+          "id": "#push_to_solvebio.run_mode",
+          "source": [
+            "#run_mode"
+          ]
+        },
+        {
+          "id": "#push_to_solvebio.genomic_data",
+          "source": [
+            "#concatenate_tsv.maf_json"
+          ]
+        },
+        {
+          "id": "#push_to_solvebio.genome_ref",
+          "default": "GRCh37"
+        },
+        {
+          "id": "#push_to_solvebio.dataset",
+          "source": [
+            "#dataset"
+          ]
+        },
+        {
+          "id": "#push_to_solvebio.auto_approve",
+          "default": "True"
+        }
+      ],
+      "sbg:y": 363.20001220703136,
+      "run": {
+        "sbg:latestRevision": 1,
+        "baseCommand": [
+          "python",
+          "push_to_solve.py"
+        ],
+        "sbg:revision": 1,
+        "sbg:revisionsInfo": [
+          {
+            "sbg:modifiedOn": 1479149335,
+            "sbg:revision": 0,
+            "sbg:modifiedBy": "dave",
+            "sbg:revisionNotes": "Copy of dave/rd168-ericscript-dev/solvebio-push/9"
+          },
+          {
+            "sbg:modifiedOn": 1479149669,
+            "sbg:revision": 1,
+            "sbg:modifiedBy": "dave",
+            "sbg:revisionNotes": "not a copy now"
+          }
+        ],
+        "sbg:sbgMaintained": false,
+        "sbg:modifiedBy": "dave",
         "sbg:contributors": [
           "dave"
         ],
+        "sbg:createdOn": 1479149335,
+        "label": "push Hotspot3D MAF to SolveBio",
+        "sbg:modifiedOn": 1479149669,
+        "requirements": [
+          {
+            "fileDef": [
+              {
+                "fileContent": "# import\nimport solvebio\n\n#get args\nfrom push_to_solve import *  \n\n# Log in to SolveBio API\nsolvebio.login(api_key = args_api_key)\n\n# Use default template ID\ntemplate_id = solvebio.DatasetTemplate.all().objects()[0]\n\n# is_genomic=True\n\n# Get/create the SolveBio dataset\n\ndataset = solvebio.Dataset.get_or_create_by_full_name(full_name = args_full_name,\ngenome_build = args_genome_build,\nentity_type ='variant',\nfields=template_id.fields)\n\nmanifest = solvebio.Manifest()\nmanifest.add_file(path = args_file_path)\n\nimp = solvebio.DatasetImport.create(dataset_id=dataset.id,\nmanifest = manifest.manifest,\ngenome_build = args_genome_build,\nauto_approve= args_auto_approve)\n\nimport_url = 'https://my.solvebio.com/jobs/imports/{0}'.format(imp.id)\ndataset_url = 'https://my.solvebio.com/data/{0}'.format(dataset.full_name)\n\nprint(import_url)\nprint(dataset_url)",
+                "filename": "push_to_solve_main.py"
+              },
+              {
+                "fileContent": {
+                  "class": "Expression",
+                  "script": "'# get args \\n\\\nargs_api_key = \"'+$job.inputs.token+'\" \\n\\\nargs_full_name = \"'+$job.inputs.dataset+'/'+$job.inputs.genomic_data.metadata.case_id+'\" \\n\\\nargs_genome_build = \"'+$job.inputs.genome_ref+'\" \\n\\\nargs_file_path = \"'+$job.inputs.genomic_data.path+'\" \\n\\\nargs_run_mode = \"'+$job.inputs.run_mode+'\" \\n\\\nargs_auto_approve = \"'+$job.inputs.auto_approve+'\" \\n\\\n\\n\\\nif args_run_mode == \"push\": \\n\\\n    import push_to_solve_main'\n\n\n",
+                  "engine": "#cwl-js-engine"
+                },
+                "filename": "push_to_solve.py"
+              }
+            ],
+            "class": "CreateFileRequirement"
+          },
+          {
+            "id": "#cwl-js-engine",
+            "class": "ExpressionEngineRequirement",
+            "requirements": [
+              {
+                "dockerPull": "rabix/js-engine",
+                "class": "DockerRequirement"
+              }
+            ]
+          }
+        ],
+        "successCodes": [],
+        "outputs": [
+          {
+            "id": "#summary_out",
+            "outputBinding": {
+              "glob": "*std.out",
+              "sbg:inheritMetadataFrom": "#genomic_data"
+            },
+            "description": "Brief output file listing the \"dataset\" and \"job\" URLs on SolveBio",
+            "type": [
+              "null",
+              "File"
+            ],
+            "label": "summary_out",
+            "sbg:fileTypes": "TXT"
+          }
+        ],
+        "sbg:cmdPreview": "python push_to_solve.py --genomic_data /path/to/exomes_A.vcf --secret_api_token a7c0886ae07cd3aa5ff9d8778cbfb11378bff60f --depository_name sbgenomics:temp/0.0.1 --genome_reference GRCh37 > solveBio_push_std.out",
+        "x": 890.3333333333335,
+        "inputs": [
+          {
+            "inputBinding": {
+              "separate": true,
+              "prefix": "--secret_api_token",
+              "sbg:cmdInclude": true,
+              "position": 1
+            },
+            "id": "#token",
+            "description": "SolveBio API token",
+            "type": [
+              "string"
+            ],
+            "label": "push Hotspot3D MAF to SolveBio"
+          },
+          {
+            "inputBinding": {
+              "separate": true,
+              "prefix": "--run_mode",
+              "sbg:cmdInclude": true,
+              "position": 0
+            },
+            "id": "#run_mode",
+            "description": "Should the app push to solve",
+            "type": [
+              "null",
+              {
+                "name": "run_mode",
+                "symbols": [
+                  "push",
+                  "skip"
+                ],
+                "type": "enum"
+              }
+            ]
+          },
+          {
+            "id": "#genomic_data",
+            "inputBinding": {
+              "itemSeparator": " ",
+              "separate": true,
+              "prefix": "--genomic_data",
+              "sbg:cmdInclude": true,
+              "position": 0
+            },
+            "description": "file to push to SolveBio",
+            "type": [
+              "File"
+            ],
+            "label": "genomic_entity_file",
+            "required": true
+          },
+          {
+            "id": "#genome_ref",
+            "sbg:toolDefaultValue": "GRCh37",
+            "inputBinding": {
+              "separate": true,
+              "prefix": "--genome_reference",
+              "sbg:cmdInclude": true,
+              "position": 3
+            },
+            "description": "Genome reference used for variant calling",
+            "type": [
+              {
+                "name": "genome_ref",
+                "symbols": [
+                  "GRCh37",
+                  "GRCh38"
+                ],
+                "type": "enum"
+              }
+            ],
+            "label": "genome_ref"
+          },
+          {
+            "inputBinding": {
+              "separate": true,
+              "prefix": "--depository_name",
+              "sbg:cmdInclude": true,
+              "position": 2
+            },
+            "id": "#dataset",
+            "description": "Name of the SolveBio dataset to append to or create. Should follow the formatting {Depository}/{Version}/{Dataset}.",
+            "type": [
+              "string"
+            ],
+            "label": "dataset"
+          },
+          {
+            "id": "#auto_approve",
+            "sbg:toolDefaultValue": "True",
+            "inputBinding": {
+              "separate": true,
+              "prefix": "--auto_approve",
+              "sbg:cmdInclude": true,
+              "position": 4
+            },
+            "description": "Automatically approve the VCF upload to SolveBio",
+            "type": [
+              "null",
+              {
+                "name": "auto_approve",
+                "symbols": [
+                  "False",
+                  "True"
+                ],
+                "type": "enum"
+              }
+            ],
+            "label": "auto_approve"
+          }
+        ],
+        "sbg:id": "dave/cgrfunctional/solvebio-push/1",
+        "stdin": "",
         "temporaryFailCodes": [],
+        "id": "dave/cgrfunctional/solvebio-push/1",
+        "description": "",
+        "hints": [
+          {
+            "class": "sbg:CPURequirement",
+            "value": 1
+          },
+          {
+            "class": "sbg:MemRequirement",
+            "value": 1000
+          },
+          {
+            "dockerPull": "cgrlab/solvebio-python:latest",
+            "class": "DockerRequirement",
+            "dockerImageId": ""
+          }
+        ],
+        "arguments": [],
+        "sbg:createdBy": "dave",
+        "sbg:image_url": null,
+        "sbg:toolAuthor": "Jack DiGiovanna / Seven Bridges",
         "sbg:project": "dave/cgrfunctional",
+        "sbg:validationErrors": [],
         "class": "CommandLineTool",
-        "x": 667,
-        "y": 258.2124938964844
-      },
+        "y": 363.20001220703136,
+        "sbg:revisionNotes": "not a copy now",
+        "sbg:categories": [
+          "integrations"
+        ],
+        "sbg:job": {
+          "inputs": {
+            "token": "a7c0886ae07cd3aa5ff9d8778cbfb11378bff60f",
+            "dataset": "sbgenomics:temp/0.0.1",
+            "genome_ref": "GRCh37",
+            "auto_approve": "True",
+            "run_mode": "push",
+            "genomic_data": {
+              "metadata": {
+                "case_id": "SampleA_case_id"
+              },
+              "class": "File",
+              "path": "/path/to/exomes_A.vcf",
+              "secondaryFiles": [],
+              "size": 0
+            }
+          },
+          "allocatedResources": {
+            "cpu": 1,
+            "mem": 1000
+          }
+        },
+        "stdout": "solveBio_push_std.out"
+      }
+    },
+    {
+      "sbg:x": 85.00000000000003,
+      "id": "#VCF_Parser",
+      "outputs": [
+        {
+          "id": "#VCF_Parser.json"
+        }
+      ],
       "inputs": [
         {
-          "id": "#json_to_hotspot3d_maf.json",
+          "id": "#VCF_Parser.vcf",
           "source": [
-            "#json"
+            "#vcf"
           ]
         }
       ],
+      "sbg:y": 312.86667887369805,
+      "run": {
+        "sbg:latestRevision": 1,
+        "baseCommand": [
+          "python",
+          "/opt/solvebio-python/solvebio/contrib/vcf_parser/vcf_parser.py"
+        ],
+        "sbg:revision": 1,
+        "sbg:revisionsInfo": [
+          {
+            "sbg:modifiedOn": 1479178136,
+            "sbg:revision": 0,
+            "sbg:modifiedBy": "dave",
+            "sbg:revisionNotes": null
+          },
+          {
+            "sbg:modifiedOn": 1479178155,
+            "sbg:revision": 1,
+            "sbg:modifiedBy": "dave",
+            "sbg:revisionNotes": null
+          }
+        ],
+        "sbg:sbgMaintained": false,
+        "sbg:modifiedBy": "dave",
+        "sbg:contributors": [
+          "dave"
+        ],
+        "sbg:createdOn": 1479178136,
+        "label": "VCF Parser",
+        "sbg:modifiedOn": 1479178155,
+        "requirements": [
+          {
+            "id": "#cwl-js-engine",
+            "class": "ExpressionEngineRequirement",
+            "requirements": [
+              {
+                "dockerPull": "rabix/js-engine",
+                "class": "DockerRequirement"
+              }
+            ]
+          }
+        ],
+        "successCodes": [],
+        "outputs": [
+          {
+            "streamable": false,
+            "id": "#json",
+            "outputBinding": {
+              "sbg:metadata": {
+                "tool_created_by": "vcf_parser"
+              },
+              "glob": {
+                "class": "Expression",
+                "script": "\"*.vcf.json.gz\"",
+                "engine": "#cwl-js-engine"
+              },
+              "sbg:inheritMetadataFrom": "#vcf"
+            },
+            "type": [
+              "null",
+              "File"
+            ],
+            "description": "vcf converted to json",
+            "default": "",
+            "label": "json"
+          }
+        ],
+        "sbg:cmdPreview": "python /opt/solvebio-python/solvebio/contrib/vcf_parser/vcf_parser.py > sampleA.vcf.json && gzip sampleA.vcf.json  && ls -lhrt > std.out",
+        "inputs": [
+          {
+            "streamable": false,
+            "id": "#vcf",
+            "inputBinding": {
+              "separate": true,
+              "position": 1,
+              "sbg:cmdInclude": true
+            },
+            "type": [
+              "null",
+              "File"
+            ],
+            "description": ".vcf or .vcf.gz",
+            "default": "",
+            "label": "vcf",
+            "required": false
+          }
+        ],
+        "sbg:id": "dave/cgrfunctional/vcf-parser/1",
+        "temporaryFailCodes": [],
+        "id": "dave/cgrfunctional/vcf-parser/1",
+        "description": "",
+        "hints": [
+          {
+            "dockerPull": "cgrlab/solvebio-python:latest",
+            "class": "DockerRequirement"
+          },
+          {
+            "class": "sbg:CPURequirement",
+            "value": 1
+          },
+          {
+            "class": "sbg:MemRequirement",
+            "value": 1000
+          }
+        ],
+        "arguments": [
+          {
+            "separate": true,
+            "valueFrom": {
+              "class": "Expression",
+              "script": "var filename = $job.inputs.vcf.path.split(\"/\").reverse()[0].split(\".vcf\")[0]\nfilename + \".vcf.json\"",
+              "engine": "#cwl-js-engine"
+            },
+            "prefix": ">",
+            "position": 101
+          },
+          {
+            "separate": true,
+            "valueFrom": {
+              "class": "Expression",
+              "script": " \n\n\n\nvar filename = $job.inputs.vcf.path.split(\"/\").reverse()[0].split(\".vcf\")[0]\n\n\"gzip \" + filename + \".vcf.json\"",
+              "engine": "#cwl-js-engine"
+            },
+            "prefix": "&&",
+            "position": 102
+          },
+          {
+            "separate": true,
+            "position": 199,
+            "valueFrom": {
+              "class": "Expression",
+              "script": "\"&& ls -lhrt\"",
+              "engine": "#cwl-js-engine"
+            }
+          }
+        ],
+        "sbg:createdBy": "dave",
+        "sbg:image_url": null,
+        "stdin": "",
+        "sbg:project": "dave/cgrfunctional",
+        "sbg:validationErrors": [],
+        "class": "CommandLineTool",
+        "y": 312.86667887369805,
+        "x": 85.00000000000003,
+        "sbg:job": {
+          "inputs": {
+            "vcf": {
+              "metadata": {
+                "sample_id": "SampleA"
+              },
+              "class": "File",
+              "path": "path/to/sampleA.vcf",
+              "secondaryFiles": [],
+              "size": 0
+            }
+          },
+          "allocatedResources": {
+            "cpu": 1,
+            "mem": 1000
+          }
+        },
+        "stdout": "std.out"
+      }
+    },
+    {
+      "sbg:x": 286.66667683919275,
+      "id": "#push_to_solvebio_1",
       "outputs": [
         {
-          "id": "#json_to_hotspot3d_maf.std_out"
-        },
-        {
-          "id": "#json_to_hotspot3d_maf.maf"
+          "id": "#push_to_solvebio_1.summary_out"
         }
       ],
-      "sbg:x": 667,
-      "sbg:y": 258.2124938964844
-    }
-  ],
-  "requirements": [],
-  "inputs": [
-    {
-      "id": "#json",
-      "label": "json",
-      "sbg:x": 198,
-      "sbg:y": 244,
-      "type": [
-        "null",
-        "File"
-      ]
-    }
-  ],
-  "outputs": [
-    {
-      "sbg:x": 967,
-      "sbg:y": 189,
-      "id": "#maf",
-      "sbg:includeInPorts": true,
-      "label": "maf",
-      "type": [
-        "null",
-        "File"
+      "inputs": [
+        {
+          "id": "#push_to_solvebio_1.token",
+          "source": [
+            "#token_1"
+          ]
+        },
+        {
+          "id": "#push_to_solvebio_1.run_mode",
+          "source": [
+            "#run_mode_1"
+          ]
+        },
+        {
+          "id": "#push_to_solvebio_1.genomic_data",
+          "source": [
+            "#VCF_Parser.json"
+          ]
+        },
+        {
+          "id": "#push_to_solvebio_1.genome_ref",
+          "default": "GRCh37"
+        },
+        {
+          "id": "#push_to_solvebio_1.dataset",
+          "source": [
+            "#dataset_1"
+          ]
+        },
+        {
+          "id": "#push_to_solvebio_1.auto_approve",
+          "default": "True"
+        }
       ],
-      "required": false,
-      "source": [
-        "#json_to_hotspot3d_maf.maf"
-      ]
+      "sbg:y": 445.6000264485678,
+      "run": {
+        "sbg:latestRevision": 1,
+        "baseCommand": [
+          "python",
+          "push_to_solve.py"
+        ],
+        "sbg:revision": 1,
+        "sbg:revisionsInfo": [
+          {
+            "sbg:modifiedOn": 1479149335,
+            "sbg:revision": 0,
+            "sbg:modifiedBy": "dave",
+            "sbg:revisionNotes": "Copy of dave/rd168-ericscript-dev/solvebio-push/9"
+          },
+          {
+            "sbg:modifiedOn": 1479149669,
+            "sbg:revision": 1,
+            "sbg:modifiedBy": "dave",
+            "sbg:revisionNotes": "not a copy now"
+          }
+        ],
+        "sbg:sbgMaintained": false,
+        "sbg:modifiedBy": "dave",
+        "sbg:contributors": [
+          "dave"
+        ],
+        "sbg:createdOn": 1479149335,
+        "label": "push VCF to SolveBio",
+        "sbg:modifiedOn": 1479149669,
+        "requirements": [
+          {
+            "fileDef": [
+              {
+                "fileContent": "# import\nimport solvebio\n\n#get args\nfrom push_to_solve import *  \n\n# Log in to SolveBio API\nsolvebio.login(api_key = args_api_key)\n\n# Use default template ID\ntemplate_id = solvebio.DatasetTemplate.all().objects()[0]\n\n# is_genomic=True\n\n# Get/create the SolveBio dataset\n\ndataset = solvebio.Dataset.get_or_create_by_full_name(full_name = args_full_name,\ngenome_build = args_genome_build,\nentity_type ='variant',\nfields=template_id.fields)\n\nmanifest = solvebio.Manifest()\nmanifest.add_file(path = args_file_path)\n\nimp = solvebio.DatasetImport.create(dataset_id=dataset.id,\nmanifest = manifest.manifest,\ngenome_build = args_genome_build,\nauto_approve= args_auto_approve)\n\nimport_url = 'https://my.solvebio.com/jobs/imports/{0}'.format(imp.id)\ndataset_url = 'https://my.solvebio.com/data/{0}'.format(dataset.full_name)\n\nprint(import_url)\nprint(dataset_url)",
+                "filename": "push_to_solve_main.py"
+              },
+              {
+                "fileContent": {
+                  "class": "Expression",
+                  "script": "'# get args \\n\\\nargs_api_key = \"'+$job.inputs.token+'\" \\n\\\nargs_full_name = \"'+$job.inputs.dataset+'/'+$job.inputs.genomic_data.metadata.case_id+'\" \\n\\\nargs_genome_build = \"'+$job.inputs.genome_ref+'\" \\n\\\nargs_file_path = \"'+$job.inputs.genomic_data.path+'\" \\n\\\nargs_run_mode = \"'+$job.inputs.run_mode+'\" \\n\\\nargs_auto_approve = \"'+$job.inputs.auto_approve+'\" \\n\\\n\\n\\\nif args_run_mode == \"push\": \\n\\\n    import push_to_solve_main'\n\n\n",
+                  "engine": "#cwl-js-engine"
+                },
+                "filename": "push_to_solve.py"
+              }
+            ],
+            "class": "CreateFileRequirement"
+          },
+          {
+            "id": "#cwl-js-engine",
+            "class": "ExpressionEngineRequirement",
+            "requirements": [
+              {
+                "dockerPull": "rabix/js-engine",
+                "class": "DockerRequirement"
+              }
+            ]
+          }
+        ],
+        "successCodes": [],
+        "outputs": [
+          {
+            "id": "#summary_out",
+            "outputBinding": {
+              "glob": "*std.out",
+              "sbg:inheritMetadataFrom": "#genomic_data"
+            },
+            "description": "Brief output file listing the \"dataset\" and \"job\" URLs on SolveBio",
+            "type": [
+              "null",
+              "File"
+            ],
+            "label": "summary_out",
+            "sbg:fileTypes": "TXT"
+          }
+        ],
+        "sbg:cmdPreview": "python push_to_solve.py --genomic_data /path/to/exomes_A.vcf --secret_api_token a7c0886ae07cd3aa5ff9d8778cbfb11378bff60f --depository_name sbgenomics:temp/0.0.1 --genome_reference GRCh37 > solveBio_push_std.out",
+        "x": 286.66667683919275,
+        "inputs": [
+          {
+            "inputBinding": {
+              "separate": true,
+              "prefix": "--secret_api_token",
+              "sbg:cmdInclude": true,
+              "position": 1
+            },
+            "id": "#token",
+            "description": "SolveBio API token",
+            "type": [
+              "string"
+            ],
+            "label": "token"
+          },
+          {
+            "inputBinding": {
+              "separate": true,
+              "prefix": "--run_mode",
+              "sbg:cmdInclude": true,
+              "position": 0
+            },
+            "id": "#run_mode",
+            "description": "Should the app push to solve",
+            "type": [
+              "null",
+              {
+                "name": "run_mode",
+                "symbols": [
+                  "push",
+                  "skip"
+                ],
+                "type": "enum"
+              }
+            ]
+          },
+          {
+            "id": "#genomic_data",
+            "inputBinding": {
+              "itemSeparator": " ",
+              "separate": true,
+              "prefix": "--genomic_data",
+              "sbg:cmdInclude": true,
+              "position": 0
+            },
+            "description": "file to push to SolveBio",
+            "type": [
+              "File"
+            ],
+            "label": "genomic_entity_file",
+            "required": true
+          },
+          {
+            "id": "#genome_ref",
+            "sbg:toolDefaultValue": "GRCh37",
+            "inputBinding": {
+              "separate": true,
+              "prefix": "--genome_reference",
+              "sbg:cmdInclude": true,
+              "position": 3
+            },
+            "description": "Genome reference used for variant calling",
+            "type": [
+              {
+                "name": "genome_ref",
+                "symbols": [
+                  "GRCh37",
+                  "GRCh38"
+                ],
+                "type": "enum"
+              }
+            ],
+            "label": "genome_ref"
+          },
+          {
+            "inputBinding": {
+              "separate": true,
+              "prefix": "--depository_name",
+              "sbg:cmdInclude": true,
+              "position": 2
+            },
+            "id": "#dataset",
+            "description": "Name of the SolveBio dataset to append to or create. Should follow the formatting {Depository}/{Version}/{Dataset}.",
+            "type": [
+              "string"
+            ],
+            "label": "dataset"
+          },
+          {
+            "id": "#auto_approve",
+            "sbg:toolDefaultValue": "True",
+            "inputBinding": {
+              "separate": true,
+              "prefix": "--auto_approve",
+              "sbg:cmdInclude": true,
+              "position": 4
+            },
+            "description": "Automatically approve the VCF upload to SolveBio",
+            "type": [
+              "null",
+              {
+                "name": "auto_approve",
+                "symbols": [
+                  "False",
+                  "True"
+                ],
+                "type": "enum"
+              }
+            ],
+            "label": "auto_approve"
+          }
+        ],
+        "sbg:id": "dave/cgrfunctional/solvebio-push/1",
+        "stdin": "",
+        "temporaryFailCodes": [],
+        "id": "dave/cgrfunctional/solvebio-push/1",
+        "description": "",
+        "hints": [
+          {
+            "class": "sbg:CPURequirement",
+            "value": 1
+          },
+          {
+            "class": "sbg:MemRequirement",
+            "value": 1000
+          },
+          {
+            "dockerPull": "cgrlab/solvebio-python:latest",
+            "class": "DockerRequirement",
+            "dockerImageId": ""
+          }
+        ],
+        "arguments": [],
+        "sbg:createdBy": "dave",
+        "sbg:image_url": null,
+        "sbg:toolAuthor": "Jack DiGiovanna / Seven Bridges",
+        "sbg:project": "dave/cgrfunctional",
+        "sbg:validationErrors": [],
+        "class": "CommandLineTool",
+        "y": 445.6000264485678,
+        "sbg:revisionNotes": "not a copy now",
+        "sbg:categories": [
+          "integrations"
+        ],
+        "sbg:job": {
+          "inputs": {
+            "token": "a7c0886ae07cd3aa5ff9d8778cbfb11378bff60f",
+            "dataset": "sbgenomics:temp/0.0.1",
+            "genome_ref": "GRCh37",
+            "auto_approve": "True",
+            "run_mode": "push",
+            "genomic_data": {
+              "metadata": {
+                "case_id": "SampleA_case_id"
+              },
+              "class": "File",
+              "path": "/path/to/exomes_A.vcf",
+              "secondaryFiles": [],
+              "size": 0
+            }
+          },
+          "allocatedResources": {
+            "cpu": 1,
+            "mem": 1000
+          }
+        },
+        "stdout": "solveBio_push_std.out"
+      }
+    },
+    {
+      "sbg:x": 634.6666666666669,
+      "id": "#concatenate_tsv",
+      "outputs": [
+        {
+          "id": "#concatenate_tsv.std_out"
+        },
+        {
+          "id": "#concatenate_tsv.merged_tsv"
+        },
+        {
+          "id": "#concatenate_tsv.maf_json"
+        }
+      ],
+      "inputs": [
+        {
+          "id": "#concatenate_tsv.tsv_files",
+          "source": [
+            "#json_to_hotspot3d_maf.maf"
+          ]
+        }
+      ],
+      "sbg:y": 185.53334554036465,
+      "run": {
+        "sbg:latestRevision": 8,
+        "baseCommand": [
+          "Rscript",
+          "concatenate_tsv.R"
+        ],
+        "sbg:revision": 8,
+        "sbg:revisionsInfo": [
+          {
+            "sbg:modifiedOn": 1479167776,
+            "sbg:revision": 0,
+            "sbg:modifiedBy": "dave",
+            "sbg:revisionNotes": null
+          },
+          {
+            "sbg:modifiedOn": 1479168098,
+            "sbg:revision": 1,
+            "sbg:modifiedBy": "dave",
+            "sbg:revisionNotes": null
+          },
+          {
+            "sbg:modifiedOn": 1479168611,
+            "sbg:revision": 2,
+            "sbg:modifiedBy": "dave",
+            "sbg:revisionNotes": null
+          },
+          {
+            "sbg:modifiedOn": 1479168715,
+            "sbg:revision": 3,
+            "sbg:modifiedBy": "dave",
+            "sbg:revisionNotes": null
+          },
+          {
+            "sbg:modifiedOn": 1479169717,
+            "sbg:revision": 4,
+            "sbg:modifiedBy": "dave",
+            "sbg:revisionNotes": null
+          },
+          {
+            "sbg:modifiedOn": 1479170212,
+            "sbg:revision": 5,
+            "sbg:modifiedBy": "dave",
+            "sbg:revisionNotes": null
+          },
+          {
+            "sbg:modifiedOn": 1479170672,
+            "sbg:revision": 6,
+            "sbg:modifiedBy": "dave",
+            "sbg:revisionNotes": null
+          },
+          {
+            "sbg:modifiedOn": 1479177116,
+            "sbg:revision": 7,
+            "sbg:modifiedBy": "dave",
+            "sbg:revisionNotes": null
+          },
+          {
+            "sbg:modifiedOn": 1479178798,
+            "sbg:revision": 8,
+            "sbg:modifiedBy": "dave",
+            "sbg:revisionNotes": null
+          }
+        ],
+        "sbg:sbgMaintained": false,
+        "sbg:modifiedBy": "dave",
+        "sbg:contributors": [
+          "dave"
+        ],
+        "sbg:createdOn": 1479167776,
+        "sbg:image_url": null,
+        "sbg:modifiedOn": 1479178798,
+        "requirements": [
+          {
+            "fileDef": [
+              {
+                "fileContent": "temp = args_tsv %>% \ngroup_by(path) %>% \ndo(read_tsv(.$path,col_types=cols(Chromosome = \"c\"))) %>% \nselect(-path)\n\nwrite_tsv(temp, paste0(args_tsv$sample_id[1], \".maf\"))\n\noutput = file(paste0(args_tsv$sample_id[1], \".maf.json\"), open = \"wb\")\n\nstream_out(temp, output)\n\nclose(output)",
+                "filename": "concatenate_tsv.main.R"
+              },
+              {
+                "fileContent": {
+                  "class": "Expression",
+                  "script": "var tsv_path = $job.inputs.tsv_files.map(function(elem){\n  return elem.path}).join('\", \"');\n\nvar tsv_sample_id = $job.inputs.tsv_files.map(function(elem){\n  return elem.metadata.sample_id}).join('\", \"');\n\n\n'# load packages \\n\\\nrequire(tidyverse); require(jsonlite); \\n\\\n# get args \\n\\\nargs_tsv = data_frame(\\n\\\npath = c(\"'+tsv_path+'\"), \\n\\\nsample_id = c(\"'+tsv_sample_id+'\")) \\n\\\nsource(\"concatenate_tsv.main.R\")';\n",
+                  "engine": "#cwl-js-engine"
+                },
+                "filename": "concatenate_tsv.R"
+              }
+            ],
+            "class": "CreateFileRequirement"
+          },
+          {
+            "id": "#cwl-js-engine",
+            "class": "ExpressionEngineRequirement",
+            "requirements": [
+              {
+                "dockerPull": "rabix/js-engine",
+                "class": "DockerRequirement"
+              }
+            ]
+          }
+        ],
+        "successCodes": [],
+        "outputs": [
+          {
+            "streamable": false,
+            "id": "#std_out",
+            "outputBinding": {
+              "sbg:metadata": {
+                "from_tool": "merge_tsv"
+              },
+              "glob": "\"std.out\""
+            },
+            "type": [
+              "null",
+              "File"
+            ],
+            "description": "standard output",
+            "default": "",
+            "label": "std_out"
+          },
+          {
+            "streamable": false,
+            "id": "#merged_tsv",
+            "outputBinding": {
+              "sbg:metadata": {
+                "from_tool": "merge_tsv"
+              },
+              "glob": {
+                "class": "Expression",
+                "script": "\"*.maf\"",
+                "engine": "#cwl-js-engine"
+              },
+              "sbg:inheritMetadataFrom": "#tsv_files"
+            },
+            "type": [
+              "null",
+              "File"
+            ],
+            "description": "merged_tsv",
+            "default": "",
+            "label": "merged_tsv"
+          },
+          {
+            "id": "#maf_json",
+            "type": [
+              "null",
+              "File"
+            ],
+            "outputBinding": {
+              "sbg:metadata": {
+                "case_id": {
+                  "class": "Expression",
+                  "script": "\"HS_MAF_\"+$job.inputs.tsv_files[0].metadata.sample_id",
+                  "engine": "#cwl-js-engine"
+                }
+              },
+              "glob": {
+                "class": "Expression",
+                "script": "\"*.maf.json\"",
+                "engine": "#cwl-js-engine"
+              },
+              "sbg:inheritMetadataFrom": "#tsv_files"
+            }
+          }
+        ],
+        "sbg:cmdPreview": "Rscript concatenate_tsv.R  > std.out",
+        "inputs": [
+          {
+            "streamable": false,
+            "id": "#tsv_files",
+            "inputBinding": {
+              "separate": true,
+              "prefix": "--tsv_files=",
+              "sbg:cmdInclude": true,
+              "position": 0
+            },
+            "type": [
+              "null",
+              {
+                "items": "File",
+                "type": "array"
+              }
+            ],
+            "description": "tsv_files",
+            "default": "",
+            "label": "tsv_files",
+            "required": false
+          }
+        ],
+        "sbg:id": "dave/cgrfunctional/concatenate-tsv/8",
+        "temporaryFailCodes": [],
+        "id": "dave/cgrfunctional/concatenate-tsv/8",
+        "description": "",
+        "hints": [
+          {
+            "dockerPull": "cgrlab/tidyverse:latest",
+            "class": "DockerRequirement"
+          },
+          {
+            "class": "sbg:CPURequirement",
+            "value": 1
+          },
+          {
+            "class": "sbg:MemRequirement",
+            "value": 1000
+          }
+        ],
+        "arguments": [],
+        "sbg:createdBy": "dave",
+        "label": "concatenate_tsv",
+        "stdin": "",
+        "sbg:project": "dave/cgrfunctional",
+        "sbg:validationErrors": [],
+        "class": "CommandLineTool",
+        "y": 185.53334554036465,
+        "x": 634.6666666666669,
+        "sbg:job": {
+          "inputs": {
+            "tsv_files": [
+              {
+                "metadata": {
+                  "sample_id": "SC01234"
+                },
+                "class": "File",
+                "path": "sampleA_01.tsv",
+                "secondaryFiles": [],
+                "size": 0
+              },
+              {
+                "metadata": {
+                  "sample_id": "SC01234"
+                },
+                "class": "File",
+                "path": "sampleA_02.tsv",
+                "secondaryFiles": [],
+                "size": 0
+              }
+            ]
+          },
+          "allocatedResources": {
+            "cpu": 1,
+            "mem": 1000
+          }
+        },
+        "stdout": "std.out"
+      }
     }
   ],
-  "sbg:canvas_y": 0,
   "sbg:createdBy": "dave",
-  "sbg:canvas_zoom": 1,
-  "sbg:revisionsInfo": [
-    {
-      "sbg:revisionNotes": null,
-      "sbg:revision": 0,
-      "sbg:modifiedOn": 1478548174,
-      "sbg:modifiedBy": "dave"
-    },
-    {
-      "sbg:revisionNotes": null,
-      "sbg:revision": 1,
-      "sbg:modifiedOn": 1478548240,
-      "sbg:modifiedBy": "dave"
-    },
-    {
-      "sbg:revisionNotes": null,
-      "sbg:revision": 2,
-      "sbg:modifiedOn": 1478548256,
-      "sbg:modifiedBy": "dave"
-    },
-    {
-      "sbg:revisionNotes": "just testing json app now",
-      "sbg:revision": 3,
-      "sbg:modifiedOn": 1478622677,
-      "sbg:modifiedBy": "dave"
-    },
-    {
-      "sbg:revisionNotes": null,
-      "sbg:revision": 4,
-      "sbg:modifiedOn": 1478622934,
-      "sbg:modifiedBy": "dave"
-    },
-    {
-      "sbg:revisionNotes": "added json scatter",
-      "sbg:revision": 5,
-      "sbg:modifiedOn": 1478623497,
-      "sbg:modifiedBy": "dave"
-    },
-    {
-      "sbg:revisionNotes": null,
-      "sbg:revision": 6,
-      "sbg:modifiedOn": 1478626594,
-      "sbg:modifiedBy": "dave"
-    },
-    {
-      "sbg:revisionNotes": null,
-      "sbg:revision": 7,
-      "sbg:modifiedOn": 1478626770,
-      "sbg:modifiedBy": "dave"
-    }
-  ],
-  "sbg:sbgMaintained": false,
-  "sbg:modifiedBy": "dave",
-  "sbg:latestRevision": 7,
-  "sbg:modifiedOn": 1478626770,
-  "sbg:id": "dave/cgrfunctional/vcf-to-hotspot3d-wf-json/7",
-  "sbg:image_url": "https://cgc-brood.sbgenomics.com/static/dave/cgrfunctional/vcf-to-hotspot3d-wf-json/7.png",
+  "label": "vcf_to_hotspot3d_maf_wf",
   "sbg:project": "dave/cgrfunctional",
-  "sbg:revision": 7,
+  "sbg:canvas_x": 223,
   "sbg:validationErrors": [],
-  "sbg:canvas_x": 0,
-  "sbg:createdOn": 1478548174,
-  "sbg:contributors": [
-    "dave"
-  ],
-  "id": "dave/cgrfunctional/vcf-to-hotspot3d-wf-json/7",
-  "label": "vcf_to_hotspot3d_wf.json",
+  "class": "Workflow",
+  "sbg:canvas_zoom": 0.7499999999999998,
   "description": "",
-  "hints": []
+  "requirements": [],
+  "sbg:batchInput": "#vcf"
 }

@@ -1,0 +1,118 @@
+---
+title: "Concatenate TSV Tool"
+output:
+  github_document:
+    toc: true
+    fig_width: 5
+    fig_height: 5
+    dev: jpeg
+---
+
+```{r include = FALSE}
+require(tidyverse); require(rmarkdown); require(knitr); require(sevenbridges); 
+
+options(max.print = "99"); opts_knit$set(width = 99)
+opts_chunk$set(cache=FALSE, tidy=FALSE)
+
+source("~/cgrFunctional/scratch/cgc_auth.R")
+
+```
+
+## Description
+
+Utility to concatenate tsv files and keep the header where it belongs (at the top).
+
+## base command
+
+```{sh base command, eval=FALSE}
+
+Rscript concatenate_tsv.R --tsv_files=
+
+```
+
+## i/o
+
+### inputs
+
+```{r inputs}
+
+inputs = list(
+  
+input(id = "tsv_files", label = "tsv_files", description = "tsv_files", type = "File...", prefix = "--tsv_files=")
+  
+)
+
+```
+
+### outputs
+
+```{r output}
+
+outputs = list(
+
+output(id = "std_out", label = "std_out", 
+description = "standard output", type = "File",
+metadata = list(from_tool = "merge_tsv"),
+glob = '"std.out"'),
+  
+output(id = "merged_tsv", label = "merged_tsv", 
+description = "merged_tsv", type = "File",
+inheritMetadataFrom = "#tsv_files", metadata = list(from_tool = "merge_tsv"),
+glob = Expression(engine = "#cwl-js-engine",
+script = '"*.merged.tsv"'))
+  
+)
+
+
+```
+
+### add on scripts
+
+```{r add on scripts}
+
+concatenate_tsv_main_R = fileDef(name = "concatenate_tsv.main.R", content = read_file("concatenate_tsv.main.R"))
+
+concatenate_tsv_R = fileDef(name = "concatenate_tsv.R.js", content = read_file("concatenate_tsv.R.js"))
+
+```
+
+## Containerization
+
+### Docker
+
+The docker conatiner is
+
+``` cgrlab/tidyverse:latest ```
+
+### tool definition
+
+```{r 5 create tool object}
+
+tool <- Tool(
+id = "concatenate_tsv", 
+label = "concatenate_tsv",
+hints = requirements(docker(pull = "cgrlab/tidyverse:latest"), cpu(1), mem(1000)),
+
+requirements = requirements(concatenate_tsv_main_R, concatenate_tsv_R),
+  
+  baseCommand = "Rscript concatenate_tsv.R",
+
+stdout = "std.out",
+
+inputs = inputs,
+  
+outputs = outputs)
+
+```
+
+### cwl file
+
+```{r}
+write(tool$toJSON(pretty = TRUE), "./Rmd.cwl.json")
+```
+
+### push app to cloud platform
+
+```{r eval=platform_push=="yes"}
+project$app_add("concatenate_tsv", tool)
+```
