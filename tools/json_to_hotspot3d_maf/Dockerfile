@@ -1,5 +1,7 @@
 FROM ubuntu:14.04
 
+# auto builds at cgrlab/tidyverse
+
 RUN apt-get update \
  	&& apt-get install -y --no-install-recommends \
  	software-properties-common \
@@ -41,6 +43,10 @@ RUN apt-get install -y --no-install-recommends \
 	&& install.r tidyverse \
 	&& install.r knitr \
 	&& install.r rmarkdown \
+	&& install.r solvebio \
+	&& install.r V8 \
+	&& install.r stringi
+
 && rm -rf /tmp/downloaded_packages/ /tmp/*.rds
 
 ENV LC_ALL en_US.UTF-8
